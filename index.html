@@ -1,6 +1,6 @@
 <!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head></head><body class="loading bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
-  <!-- Centered Startup Video Overlay on Pitch Black Background -->
-  <div id="startup-overlay" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-all duration-1000 ease-out">
+  <!-- Centered Startup Video Overlay on White Background -->
+  <div id="startup-overlay" class="fixed inset-0 z-[100] bg-white flex items-center justify-center transition-all duration-1000 ease-out">
     <div class="relative w-[90%] max-w-[480px]">
       <video id="startup-video" class="w-full h-auto" autoplay muted playsinline>
         <source src="./assets/images/startup.webm" type="video/webm">
@@ -167,8 +167,8 @@
 
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
+<nav class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
+  <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-1">
     <a class="flex items-center" href="./index.html">
       <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 md:h-12 w-auto object-contain">
     </a>
@@ -277,7 +277,7 @@
       
       <!-- Right Column: Visual Showcase -->
       <div class="hero-animate-fade lg:col-span-5 h-full flex items-center justify-center lg:justify-end transition-all" style="transition-delay: 450ms;">
-        <div class="relative w-full max-w-[420px] lg:max-w-[380px] mx-auto lg:mr-0 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
+        <div class="relative w-full max-w-[480px] lg:max-w-[460px] mx-auto lg:mr-0 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
           <img class="w-full h-full object-cover" 
                alt="Healthy Skin, Confident You" 
                src="./assets/images/heroImage.jpg">
@@ -760,15 +760,57 @@
             container.addEventListener('touchmove', moveSlider);
         }
 
-        // Navbar Scroll Effect
+        // Navbar Scroll Effect (Capsule Header)
+        const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('py-2', 'bg-surface/90', 'shadow-md');
-                nav.classList.remove('py-4', 'bg-surface/70');
+            if (window.scrollY > 20) {
+                nav.classList.add(
+                    'top-4', 
+                    'left-1/2', 
+                    '-translate-x-1/2', 
+                    'w-[92%]', 
+                    'max-w-container-max', 
+                    'bg-surface/85', 
+                    'backdrop-blur-xl', 
+                    'border', 
+                    'border-outline-variant/30', 
+                    'shadow-lg', 
+                    'py-2.5', 
+                    'rounded-full'
+                );
+                nav.classList.remove(
+                    'top-0', 
+                    'left-0', 
+                    'w-full', 
+                    'bg-transparent', 
+                    'border-b', 
+                    'border-transparent', 
+                    'py-4'
+                );
             } else {
-                nav.classList.add('py-4', 'bg-surface/70');
-                nav.classList.remove('py-2', 'bg-surface/90', 'shadow-md');
+                nav.classList.add(
+                    'top-0', 
+                    'left-0', 
+                    'w-full', 
+                    'bg-transparent', 
+                    'border-b', 
+                    'border-transparent', 
+                    'py-4'
+                );
+                nav.classList.remove(
+                    'top-4', 
+                    'left-1/2', 
+                    '-translate-x-1/2', 
+                    'w-[92%]', 
+                    'max-w-container-max', 
+                    'bg-surface/85', 
+                    'backdrop-blur-xl', 
+                    'border', 
+                    'border-outline-variant/30', 
+                    'shadow-lg', 
+                    'py-2.5', 
+                    'rounded-full'
+                );
             }
         });
     </script>

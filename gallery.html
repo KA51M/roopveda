@@ -194,8 +194,8 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
+<nav class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
+  <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-1">
     <a class="flex items-center" href="./index.html">
       <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 md:h-12 w-auto object-contain">
     </a>
@@ -544,6 +544,60 @@
         document.querySelectorAll('.masonry-item').forEach(item => {
             item.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000');
             observer.observe(item);
+        });
+
+        // Navbar Scroll Effect (Capsule Header)
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add(
+                    'top-4', 
+                    'left-1/2', 
+                    '-translate-x-1/2', 
+                    'w-[92%]', 
+                    'max-w-container-max', 
+                    'bg-surface/85', 
+                    'backdrop-blur-xl', 
+                    'border', 
+                    'border-outline-variant/30', 
+                    'shadow-lg', 
+                    'py-2.5', 
+                    'rounded-full'
+                );
+                nav.classList.remove(
+                    'top-0', 
+                    'left-0', 
+                    'w-full', 
+                    'bg-transparent', 
+                    'border-b', 
+                    'border-transparent', 
+                    'py-4'
+                );
+            } else {
+                nav.classList.add(
+                    'top-0', 
+                    'left-0', 
+                    'w-full', 
+                    'bg-transparent', 
+                    'border-b', 
+                    'border-transparent', 
+                    'py-4'
+                );
+                nav.classList.remove(
+                    'top-4', 
+                    'left-1/2', 
+                    '-translate-x-1/2', 
+                    'w-[92%]', 
+                    'max-w-container-max', 
+                    'bg-surface/85', 
+                    'backdrop-blur-xl', 
+                    'border', 
+                    'border-outline-variant/30', 
+                    'shadow-lg', 
+                    'py-2.5', 
+                    'rounded-full'
+                );
+            }
         });
     </script>
 
