@@ -1,9 +1,11 @@
 <!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head></head><body class="loading bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
-  <!-- Fullscreen Startup Video Overlay -->
-  <div id="startup-overlay" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-all duration-1000 ease-out">
-    <video id="startup-video" class="w-full h-full object-cover" autoplay muted playsinline>
-      <source src="./assets/images/startup.mp4" type="video/mp4">
-    </video>
+  <!-- Centered Startup Video Overlay -->
+  <div id="startup-overlay" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center transition-all duration-1000 ease-out">
+    <div class="relative w-[90%] max-w-[480px] rounded-3xl overflow-hidden shadow-2xl bg-black border border-white/10">
+      <video id="startup-video" class="w-full h-auto object-contain" autoplay muted playsinline>
+        <source src="./assets/images/startup.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -220,8 +222,8 @@
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <!-- Left Column: Copy & Call to Action -->
-      <div class="lg:col-span-6 flex flex-col justify-center text-left py-8 lg:py-16">
-        <span class="hero-animate font-label-md text-label-md uppercase tracking-[0.25em] text-[#707558] mb-4 font-semibold block transition-all" style="transition-delay: 100ms;">
+      <div class="lg:col-span-7 flex flex-col justify-center text-left py-8 lg:py-16">
+        <span class="hero-animate font-label-md text-label-md uppercase tracking-[0.25em] text-secondary mb-4 font-semibold block transition-all" style="transition-delay: 100ms;">
           Beauty. Confidence. You.
         </span>
         <h1 class="hero-animate font-['Playfair_Display'] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#2d2c2a] leading-[1.15] tracking-tight transition-all" style="transition-delay: 250ms;">
@@ -232,7 +234,7 @@
         </p>
         
         <div class="hero-animate mt-8 transition-all" style="transition-delay: 550ms;">
-          <a href="./contact.html" class="inline-block bg-[#707558] text-white hover:bg-[#5f634a] px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded shadow-md active:scale-98">
+          <a href="./contact.html" class="inline-block bg-primary text-on-primary hover:bg-primary-container px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded shadow-md active:scale-95">
             Shop Now
           </a>
         </div>
@@ -241,7 +243,7 @@
         <div class="hero-animate mt-16 pt-8 border-t border-[#d8d1c5] grid grid-cols-3 gap-4 transition-all" style="transition-delay: 700ms;">
           <div class="text-center flex flex-col items-center">
             <!-- Leaf SVG -->
-            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-secondary mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21V9" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 12C14 10.5 16.5 10 18.5 10.5" />
@@ -253,7 +255,7 @@
           </div>
           <div class="text-center flex flex-col items-center border-l border-[#d8d1c5]">
             <!-- Flask SVG -->
-            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-secondary mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6M10 3v6l-4 8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l-4-8V3" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14h9" />
             </svg>
@@ -263,7 +265,7 @@
           </div>
           <div class="text-center flex flex-col items-center border-l border-[#d8d1c5]">
             <!-- Droplet SVG -->
-            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-secondary mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C12 3 5 11 5 15C5 18.866 8.134 22 12 22C15.866 22 19 18.866 19 15C19 11 12 3 12 3Z" />
             </svg>
             <span class="font-label-sm text-[10px] sm:text-[11px] tracking-wider text-[#595754] uppercase font-semibold leading-tight">
@@ -274,9 +276,9 @@
       </div>
       
       <!-- Right Column: Visual Showcase -->
-      <div class="hero-animate-fade lg:col-span-6 h-full flex items-center justify-center lg:justify-end transition-all" style="transition-delay: 450ms;">
-        <div class="relative w-full max-w-[560px] lg:max-w-none">
-          <img class="w-full h-auto object-cover rounded-2xl shadow-xl border border-secondary/10" 
+      <div class="hero-animate-fade lg:col-span-5 h-full flex items-center justify-center lg:justify-end transition-all" style="transition-delay: 450ms;">
+        <div class="relative w-full max-w-[420px] lg:max-w-[380px] mx-auto lg:mr-0 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
+          <img class="w-full h-full object-cover" 
                alt="Healthy Skin, Confident You" 
                src="./assets/images/heroImage.jpg">
         </div>
