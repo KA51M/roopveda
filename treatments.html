@@ -1,0 +1,540 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Treatments | Tridha Roopveda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#574400",
+                        "tertiary": "#735c04",
+                        "inverse-on-surface": "#f6f0e9",
+                        "surface-dim": "#dfd9d2",
+                        "primary-fixed": "#ffdada",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fef8f1",
+                        "inverse-primary": "#ffb3b4",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-container": "#715300",
+                        "tertiary-fixed-dim": "#e3c468",
+                        "secondary-fixed": "#ffdfa0",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "surface-container-highest": "#e7e2db",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#40000b",
+                        "tertiary-fixed": "#ffe08a",
+                        "primary-fixed-dim": "#ffb3b4",
+                        "on-primary-container": "#ffa6a9",
+                        "error-container": "#ffdad6",
+                        "primary": "#73001a",
+                        "background": "#fef8f1",
+                        "inverse-surface": "#32302c",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#9b0d2a",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#920124",
+                        "outline": "#8d7070",
+                        "surface-container-high": "#ede7e0",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f9f3ec",
+                        "surface-variant": "#e7e2db",
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary-container": "#c6a850",
+                        "on-background": "#1d1b17",
+                        "on-surface-variant": "#594041",
+                        "outline-variant": "#e1bebe",
+                        "secondary-container": "#fcc74f",
+                        "on-error-container": "#93000a",
+                        "surface": "#fef8f1",
+                        "surface-tint": "#b42439",
+                        "surface-container": "#f3ede6",
+                        "secondary-fixed-dim": "#f3bf48",
+                        "on-tertiary-container": "#4f3d00",
+                        "secondary": "#795900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "margin-desktop": "80px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(254, 248, 241, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 163, 45, 0.2);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 10px 40px rgba(212, 163, 45, 0.15);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(212, 163, 45, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
+    <a class="font-headline-md text-headline-md font-bold text-primary tracking-tighter" href="./index.html">Tridha Roopveda</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a id="nav-home" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors duration-300" href="./index.html">Home</a>
+      <a id="nav-about" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors duration-300" href="./about.html">About</a>
+      <a id="nav-treatments" class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="./treatments.html">Treatments</a>
+      <a id="nav-gallery" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors duration-300" href="./gallery.html">Gallery</a>
+      <a id="nav-contact" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors duration-300" href="./contact.html">Contact</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="./contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:bg-primary-container text-center">
+        Book Appointment
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-1" aria-label="Toggle Menu">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl flex flex-col justify-between p-8 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+    <div>
+      <div class="flex justify-between items-center mb-12">
+        <a class="font-headline-md text-headline-md font-bold text-primary tracking-tighter" href="./index.html">Tridha Roopveda</a>
+        <button id="mobile-menu-close" class="text-primary focus:outline-none p-1" aria-label="Close Menu">
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6 text-left">
+        <a id="mobile-nav-home" class="font-display-lg text-3xl text-on-surface hover:text-primary transition-colors" href="./index.html">Home</a>
+        <a id="mobile-nav-about" class="font-display-lg text-3xl text-on-surface hover:text-primary transition-colors" href="./about.html">About</a>
+        <a id="mobile-nav-treatments" class="font-display-lg text-3xl text-primary font-bold transition-colors" href="./treatments.html">Treatments</a>
+        <a id="mobile-nav-gallery" class="font-display-lg text-3xl text-on-surface hover:text-primary transition-colors" href="./gallery.html">Gallery</a>
+        <a id="mobile-nav-contact" class="font-display-lg text-3xl text-on-surface hover:text-primary transition-colors" href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-col gap-6">
+      <a href="./contact.html" class="w-full bg-primary text-on-primary py-4 rounded-full font-label-md text-center shadow-lg active:scale-95 transition-transform hover:bg-primary-container">
+        Book Appointment
+      </a>
+      <div class="text-center font-label-sm text-on-surface-variant/60">
+        © 2024 Tridha Roopveda
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[60vh] md:h-[650px] min-h-[450px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A luxurious close-up of a person's glowing skin, captured in a high-fashion editorial style. Soft, diffused warm lighting highlights the smooth texture and dewiness of the complexion. The background is a soft ivory blur, creating a clean, medical-spa aesthetic that communicates purity and advanced dermatological care. The color palette features warm skin tones and champagne gold accents, reflecting the Tridha Roopveda brand identity." src="./assets/images/img_959bf29162e9.jpg">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="max-w-2xl px-4 md:px-0">
+<span class="inline-block px-4 py-1 mb-6 border border-secondary text-secondary font-label-md text-label-md rounded-full">Excellence in Aesthetics</span>
+<h1 class="font-display-lg text-4xl sm:text-5xl md:text-6xl lg:text-display-lg text-primary mb-8 leading-tight">Advanced Skin &amp; <br><span class="italic text-secondary">Laser Treatments</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">Merging clinical precision with traditional Ayurvedic wisdom to unlock your skin's innate luminosity through world-class technology.</p>
+<div class="flex gap-4">
+<a href="#categories" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:shadow-lg transition-all text-center inline-block">Discover Services</a>
+<a href="./contact.html" class="border border-secondary text-secondary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-secondary/5 transition-all text-center inline-block">Consult Specialists</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Navigation Bento Grid -->
+<section id="categories" class="py-12 md:py-section-padding bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-10 md:mb-16">
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-4">Treatment Categories</h2>
+<div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Laser -->
+<div class="glass-card p-8 rounded-xl gold-glow group cursor-pointer transition-all duration-500">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="flare">flare</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Laser Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Advanced diode technology for permanent hair reduction and scar resurfacing.</p>
+</div>
+<!-- Acne -->
+<div class="glass-card p-8 rounded-xl gold-glow group cursor-pointer transition-all duration-500">
+<div class="w-12 h-12 bg-secondary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" data-icon="clean_hands">clean_hands</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Acne Clinic</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Specialized medical protocols to clear active acne and prevent future breakouts.</p>
+</div>
+<!-- Anti-Aging -->
+<div class="glass-card p-8 rounded-xl gold-glow group cursor-pointer transition-all duration-500">
+<div class="w-12 h-12 bg-tertiary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Anti-Aging</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Non-surgical face lifts and rejuvenation therapies for timeless beauty.</p>
+</div>
+<!-- Body Contouring -->
+<div class="glass-card p-8 rounded-xl gold-glow group cursor-pointer transition-all duration-500">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="body_fat">body_fat</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Body Shaping</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sculpting treatments to target stubborn fat and improve skin elasticity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Treatments Section -->
+<section class="py-12 md:py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-20 md:space-y-32">
+<!-- Laser Hair Reduction -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center reveal-on-scroll px-4 md:px-0">
+<div class="relative">
+<div class="absolute -inset-4 border border-secondary/20 rounded-2xl -z-10 transform translate-x-4 translate-y-4"></div>
+<img class="rounded-xl w-full aspect-[4/5] object-cover shadow-2xl" data-alt="A professional dermatological laser hair reduction procedure in progress. The scene shows a clean, sterile clinic environment with high-end medical equipment emitting a precise ruby-red laser beam towards a patient's smooth skin. The aesthetic is clinical yet sophisticated, with soft lighting and neutral ivory tones that emphasize safety and luxury. The focus is on the precision and technology used at Tridha Roopveda." src="./assets/images/img_40972f2b8ecd.jpg">
+<div class="absolute bottom-8 right-8 glass-card px-6 py-4 rounded-lg">
+<p class="font-label-md text-label-md text-primary">Gold Standard Tech</p>
+</div>
+</div>
+<div>
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-6">Triple-Wavelength Laser Hair Reduction</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Our painless, US-FDA approved laser technology targets follicles at multiple depths, ensuring comprehensive results for all skin types and hair textures.</p>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Benefits</h4>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check_circle</span> 90% permanent reduction</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check_circle</span> Pain-free cooling tech</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check_circle</span> Safe for all skin tones</li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Details</h4>
+<div class="space-y-2 font-body-md text-body-md text-on-surface">
+<p><span class="font-bold">Duration:</span> 30 - 60 mins</p>
+<p><span class="font-bold">Recovery:</span> Zero Downtime</p>
+<p><span class="font-bold">Results:</span> Visible in 3 sessions</p>
+</div>
+</div>
+</div>
+<button class="border-b-2 border-secondary text-primary font-label-md text-label-md pb-1 hover:text-secondary transition-all">Full Procedure Details →</button>
+</div>
+</div>
+<!-- Hydra Facial -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center flex-row-reverse reveal-on-scroll px-4 md:px-0">
+<div class="order-2 md:order-1">
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-6">Platinum HydraFacial Elite</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">More than just a facial. A multi-step treatment that cleanses, exfoliates, and extracts to remove impurities while simultaneously delivering vital nutrients to the skin.</p>
+<div class="grid grid-cols-1 gap-6 mb-10">
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-secondary">water_drop</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Vortex-Fusion Technology</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The unique spiral design delivers painless extractions while hydrating the skin.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-secondary">flare</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Immediate Radiance</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Instant "red-carpet glow" with no irritation, perfect before major events.</p>
+</div>
+</div>
+</div>
+<a href="./contact.html" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md hover:scale-105 transition-transform text-center inline-block">Book Your Glow Session</a>
+</div>
+<div class="relative order-1 md:order-2">
+<div class="absolute -inset-4 border border-secondary/20 rounded-2xl -z-10 transform -translate-x-4 translate-y-4"></div>
+<img class="rounded-xl w-full aspect-[4/5] object-cover shadow-2xl" data-alt="A serene treatment room featuring a high-end HydraFacial machine. The device is sleek and modern with glowing blue liquid indicators, representing the Vortex-Fusion technology. A soft, warm light illuminates the room, creating an atmosphere of luxury and tranquility. Pristine white towels and subtle gold-brimmed skincare products are arranged nearby on an ivory marble surface, embodying the editorial minimalism of the Tridha Roopveda brand." src="./assets/images/img_e5426342df2b.jpg">
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Section -->
+<section class="py-12 md:py-section-padding bg-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+<div class="shimmer w-full h-full"></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-8 px-4 md:px-0">
+<div class="max-w-xl">
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-on-primary mb-6">Unrivaled Precision</h2>
+<p class="font-body-lg text-body-lg text-on-primary/70">We invest in global gold-standard technologies to ensure safety, efficacy, and comfort. Every device at Tridha Roopveda is US-FDA approved and clinically proven.</p>
+</div>
+<button class="border border-on-primary/30 text-on-primary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-on-primary/10 transition-all">View All Equipment</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all">
+<img class="w-full h-48 object-cover rounded-lg mb-8 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A close-up shot of a professional dermatological laser handpiece, glowing with a soft ruby light. The device is made of brushed aluminum and high-quality medical plastics, sitting elegantly on a dark backdrop. Soft lighting catches the metallic edges, creating a sophisticated 'shimmer' effect. The image reflects high-tech precision and the premium nature of the medical equipment used at Tridha Roopveda." src="./assets/images/img_9add8f9da85c.jpg">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-3">Lumenis Splendor X</h3>
+<p class="font-body-md text-body-md text-on-primary/60">The world's first hybrid laser technology using BLEND X technology for rapid and effective hair removal.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all">
+<img class="w-full h-48 object-cover rounded-lg mb-8 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A modern medical diagnostic monitor displaying a high-resolution 3D scan of facial skin layers. The interface is clean and futuristic, with cyan and ivory highlights. The surrounding clinic environment is blurred, focusing on the scientific precision of skin analysis technology. The lighting is crisp and sterile, emphasizing medical trust and advanced dermatological expertise." src="./assets/images/img_1727201ce1cd.jpg">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-3">Visia 3D Imaging</h3>
+<p class="font-body-md text-body-md text-on-primary/60">Comprehensive skin analysis that reveals hidden damage, wrinkles, and pigment levels beneath the surface.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all">
+<img class="w-full h-48 object-cover rounded-lg mb-8 grayscale hover:grayscale-0 transition-all duration-700" data-alt="An aesthetic medical workstation with various applicator heads for body contouring. The equipment is pristine, with matte gold and chrome finishes that glisten under soft overhead studio lighting. The setting is a minimalist, luxury clinic room with warm wood accents and ivory walls, conveying a sense of high-end wellness and technologically advanced body care." src="./assets/images/img_8d78d0d17a26.jpg">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-3">CoolSculpting Elite</h3>
+<p class="font-body-md text-body-md text-on-primary/60">The latest generation of non-invasive fat reduction technology with dual applicators for faster results.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Timeline -->
+<section class="py-12 md:py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-12 md:mb-20">
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-4">Your Journey to Radiance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A structured approach to ensure optimal results and personalized care.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12 px-4 md:px-0">
+<div class="hidden md:block absolute top-10 left-0 w-full h-[1px] bg-secondary/20 -z-10"></div>
+<!-- Step 1 -->
+<div class="flex-1 text-center group">
+<div class="w-20 h-20 bg-background border-2 border-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500 shadow-xl">
+<span class="font-headline-md text-headline-md">01</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Consultation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">In-depth discussion about your skin goals and medical history.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 text-center group">
+<div class="w-20 h-20 bg-background border-2 border-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500 shadow-xl">
+<span class="font-headline-md text-headline-md">02</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Skin Analysis</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">3D VISIA analysis to determine the current state of your skin layers.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 text-center group">
+<div class="w-20 h-20 bg-background border-2 border-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500 shadow-xl">
+<span class="font-headline-md text-headline-md">03</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Treatment</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Precision execution of your customized aesthetic plan.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex-1 text-center group">
+<div class="w-20 h-20 bg-background border-2 border-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500 shadow-xl">
+<span class="font-headline-md text-headline-md">04</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Follow Up</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Post-treatment care and monitoring to maintain your glow.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-12 md:py-section-padding bg-surface-container">
+<div class="max-w-2xl mx-auto px-margin-mobile md:px-0">
+<div class="text-center mb-10 md:mb-16">
+<h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-4">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<div class="glass-card rounded-xl overflow-hidden">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/30 transition-all faq-trigger">
+<span class="font-headline-md text-headline-md text-primary">Are these treatments safe for all skin types?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content h-0 overflow-hidden transition-all duration-300 px-8">
+<p class="pb-6 font-body-md text-body-md text-on-surface-variant">Yes, at Tridha Roopveda, we use advanced multi-wavelength lasers and medical-grade equipment specifically chosen for their safety profiles across diverse skin types (Fitzpatrick scales I-VI).</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="glass-card rounded-xl overflow-hidden">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/30 transition-all faq-trigger">
+<span class="font-headline-md text-headline-md text-primary">How many sessions will I need?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content h-0 overflow-hidden transition-all duration-300 px-8">
+<p class="pb-6 font-body-md text-body-md text-on-surface-variant">This varies based on the treatment and individual goals. Typically, Laser Hair Reduction requires 6-8 sessions, while rejuvenation facials show results in a single session.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="glass-card rounded-xl overflow-hidden">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/30 transition-all faq-trigger">
+<span class="font-headline-md text-headline-md text-primary">Is there any downtime after procedures?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content h-0 overflow-hidden transition-all duration-300 px-8">
+<p class="pb-6 font-body-md text-body-md text-on-surface-variant">Most of our advanced treatments like HydraFacial and Laser Hair Reduction have zero downtime. For more intensive resurfacing, we will provide a detailed post-care recovery plan.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-section-padding border-t border-secondary/20">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg text-on-primary mb-4 block">Tridha Roopveda</span>
+<p class="font-body-md text-on-primary/80 leading-relaxed">
+                    Pioneering the synthesis of aesthetic medicine and traditional wellness. Your journey to radiant skin begins here.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Navigation</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./index.html">Home</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./about.html">About Us</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Treatments</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./gallery.html">Gallery</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Popular Treatments</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">HydraFacial Elite</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Panchakarma Detox</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Laser Skin Resurfacing</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Ayurvedic Rejuvenation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Newsletter</h4>
+<p class="font-label-sm text-label-sm text-on-primary/60 mb-4 italic">Receive beauty insights &amp; clinical updates.</p>
+<form class="flex gap-2">
+<input class="bg-primary-container/30 border border-on-primary/20 rounded-lg px-4 py-2 text-on-primary placeholder:text-on-primary/40 focus:outline-none focus:border-secondary-fixed w-full" placeholder="Email Address" type="email">
+<button class="bg-secondary-fixed text-primary px-4 py-2 rounded-lg font-label-md">JOIN</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-16 pt-8 border-t border-on-primary/10 text-center">
+<p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Tridha Roopveda. Advanced Dermatology &amp; Aesthetics. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Mobile menu toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+
+        if (mobileMenuBtn && mobileMenuDrawer) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuDrawer.classList.remove('translate-x-full');
+            });
+        }
+        if (mobileMenuClose && mobileMenuDrawer) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenuDrawer.classList.add('translate-x-full');
+            });
+        }
+
+        // Close mobile drawer when clicking a link
+        document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenuDrawer) {
+                    mobileMenuDrawer.classList.add('translate-x-full');
+                }
+            });
+        });
+
+        // Reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // FAQ Accordion logic
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('.material-symbols-outlined');
+                
+                // Toggle current
+                const isOpen = content.style.height !== '0px' && content.style.height !== '';
+                
+                // Close all
+                document.querySelectorAll('.faq-content').forEach(c => c.style.height = '0px');
+                document.querySelectorAll('.faq-trigger span.material-symbols-outlined').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                if (!isOpen) {
+                    content.style.height = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4', 'shadow-sm');
+            } else {
+                nav.classList.add('py-4', 'shadow-sm');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>
