@@ -1,4 +1,10 @@
-<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head></head><body class="bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head></head><body class="loading bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+  <!-- Fullscreen Startup Video Overlay -->
+  <div id="startup-overlay" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-all duration-1000 ease-out">
+    <video id="startup-video" class="w-full h-full object-cover" autoplay muted playsinline>
+      <source src="./assets/images/startup.mp4" type="video/mp4">
+    </video>
+  </div>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Tridha Roopveda | Advanced Dermatology &amp; Aesthetics</title>
@@ -135,13 +141,35 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
+        body.loading {
+            overflow: hidden;
+            height: 100vh;
+        }
+        body.loaded .hero-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.loaded .hero-animate-fade {
+            opacity: 1;
+        }
+        .hero-animate-fade {
+            opacity: 0;
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
     </style>
 
 
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
   <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
-    <a class="font-headline-md text-headline-md font-bold text-primary tracking-tighter" href="./index.html">Tridha Roopveda</a>
+    <a class="flex items-center" href="./index.html">
+      <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 md:h-12 w-auto object-contain">
+    </a>
     <div class="hidden md:flex items-center gap-8">
       <a id="nav-home" class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="./index.html">Home</a>
       <a id="nav-about" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors duration-300" href="./about.html">About</a>
@@ -161,7 +189,9 @@
   <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl flex flex-col justify-between p-8 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
     <div>
       <div class="flex justify-between items-center mb-12">
-        <a class="font-headline-md text-headline-md font-bold text-primary tracking-tighter" href="./index.html">Tridha Roopveda</a>
+        <a class="flex items-center" href="./index.html">
+          <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 w-auto object-contain">
+        </a>
         <button id="mobile-menu-close" class="text-primary focus:outline-none p-1" aria-label="Close Menu">
           <span class="material-symbols-outlined text-3xl">close</span>
         </button>
@@ -185,81 +215,70 @@
   </div>
 </nav>
 <main>
-<!-- Section 1: Editorial Hero -->
-<section class="relative min-h-[90vh] flex items-center bg-gradient-to-tr from-[#fbf5ed] via-background to-[#fdfaf5] overflow-hidden pt-28 pb-16">
-  <!-- Subtle background glowing accents -->
-  <div class="absolute top-1/4 right-0 w-96 h-96 bg-secondary-fixed/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-  <div class="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-primary-fixed/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-  
+<!-- Section 1: Redesigned Hero -->
+<section class="relative min-h-screen flex items-center bg-[#efe8df] overflow-hidden pt-28 pb-16 lg:py-0">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-gutter items-center">
-      <!-- Left Column: Typography & Text -->
-      <div class="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
-        <div>
-          <span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-3 block">
-            Experience Tridha Roopveda
-          </span>
-          <h1 class="font-display-lg text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary font-bold leading-[1.1] tracking-tight">
-            Where Medical Science<br class="hidden sm:inline">
-            Meets Aesthetic Artistry.
-          </h1>
-          <p class="font-body-lg text-lg text-on-surface-variant max-w-xl mt-6 leading-relaxed">
-            Hyderabad's premier clinical dermatology and aesthetic sanctuary. Discover bespoke skincare treatments and gold-standard laser solutions designed to reveal your natural confidence through scientific precision and heritage wisdom.
-          </p>
-        </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left Column: Copy & Call to Action -->
+      <div class="lg:col-span-6 flex flex-col justify-center text-left py-8 lg:py-16">
+        <span class="hero-animate font-label-md text-label-md uppercase tracking-[0.25em] text-[#707558] mb-4 font-semibold block transition-all" style="transition-delay: 100ms;">
+          Beauty. Confidence. You.
+        </span>
+        <h1 class="hero-animate font-['Playfair_Display'] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#2d2c2a] leading-[1.15] tracking-tight transition-all" style="transition-delay: 250ms;">
+          Healthy Skin,<br>Confident You.
+        </h1>
+        <p class="hero-animate font-body-lg text-base sm:text-lg text-[#595754] max-w-md mt-6 leading-relaxed transition-all" style="transition-delay: 400ms;">
+          High-performance skincare powered by nature, backed by science.
+        </p>
         
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="./contact.html" class="bg-primary text-on-primary hover:bg-primary-container px-8 py-4 rounded-full font-label-md shadow-lg shadow-primary/10 active:scale-95 transition-all text-center inline-block">
-            Book Consultation
-          </a>
-          <a href="./treatments.html" class="border border-outline-variant hover:border-secondary hover:text-secondary text-on-surface px-8 py-4 rounded-full font-label-md hover:bg-secondary/5 active:scale-95 transition-all text-center inline-block">
-            Explore Treatments
+        <div class="hero-animate mt-8 transition-all" style="transition-delay: 550ms;">
+          <a href="./contact.html" class="inline-block bg-[#707558] text-white hover:bg-[#5f634a] px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded shadow-md active:scale-98">
+            Shop Now
           </a>
         </div>
         
-        <!-- Stats Row -->
-        <div class="pt-8 grid grid-cols-3 gap-6 border-t border-outline-variant/30 mt-8">
-          <div>
-            <span class="block text-3xl md:text-4xl font-display-lg text-primary font-bold">5,000+</span>
-            <span class="text-xs md:text-sm font-label-sm text-on-surface-variant uppercase tracking-widest mt-1 block">Happy Clients</span>
+        <!-- Features Grid -->
+        <div class="hero-animate mt-16 pt-8 border-t border-[#d8d1c5] grid grid-cols-3 gap-4 transition-all" style="transition-delay: 700ms;">
+          <div class="text-center flex flex-col items-center">
+            <!-- Leaf SVG -->
+            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21V9" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 12C14 10.5 16.5 10 18.5 10.5" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15C10 13.5 7.5 13 5.5 13.5" />
+            </svg>
+            <span class="font-label-sm text-[10px] sm:text-[11px] tracking-wider text-[#595754] uppercase font-semibold leading-tight">
+              Clean<br>Ingredients
+            </span>
           </div>
-          <div>
-            <span class="block text-3xl md:text-4xl font-display-lg text-primary font-bold">15+</span>
-            <span class="text-xs md:text-sm font-label-sm text-on-surface-variant uppercase tracking-widest mt-1 block">Years Exp.</span>
+          <div class="text-center flex flex-col items-center border-l border-[#d8d1c5]">
+            <!-- Flask SVG -->
+            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6M10 3v6l-4 8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l-4-8V3" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14h9" />
+            </svg>
+            <span class="font-label-sm text-[10px] sm:text-[11px] tracking-wider text-[#595754] uppercase font-semibold leading-tight">
+              Clinically<br>Proven
+            </span>
           </div>
-          <div>
-            <span class="block text-3xl md:text-4xl font-display-lg text-primary font-bold">100%</span>
-            <span class="text-xs md:text-sm font-label-sm text-on-surface-variant uppercase tracking-widest mt-1 block">FDA Safe</span>
+          <div class="text-center flex flex-col items-center border-l border-[#d8d1c5]">
+            <!-- Droplet SVG -->
+            <svg class="w-7 h-7 text-[#2d2c2a] mb-3" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C12 3 5 11 5 15C5 18.866 8.134 22 12 22C15.866 22 19 18.866 19 15C19 11 12 3 12 3Z" />
+            </svg>
+            <span class="font-label-sm text-[10px] sm:text-[11px] tracking-wider text-[#595754] uppercase font-semibold leading-tight">
+              Made For<br>Sensitive Skin
+            </span>
           </div>
         </div>
       </div>
       
       <!-- Right Column: Visual Showcase -->
-      <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
-        <div class="relative w-full max-w-[420px] aspect-[4/5]">
-          <!-- Decorative Background Spin Arc -->
-          <div class="absolute -top-8 -right-8 w-48 h-48 border border-secondary/20 rounded-full -z-10 pointer-events-none animate-[spin_32s_linear_infinite] hidden sm:block">
-            <div class="absolute top-0 left-1/2 w-3 h-3 bg-secondary rounded-full -translate-x-1/2"></div>
-          </div>
-          
-          <!-- Asymmetric Frame -->
-          <div class="w-full h-full rounded-tl-[6rem] rounded-br-[6rem] rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-2xl border border-secondary/10 relative group">
-            <img class="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105" 
-                 alt="Tridha Roopveda Clinic Interior" 
-                 src="./assets/images/img_1a220528fc5c.jpg">
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
-          </div>
-          
-          <!-- Glassmorphic Overlay Card -->
-          <div class="absolute -bottom-6 -left-6 glass-card p-5 rounded-2xl shadow-xl flex items-center gap-4 border border-secondary/20 backdrop-blur-md max-w-[280px]">
-            <div class="w-12 h-12 rounded-full bg-secondary-fixed/30 flex items-center justify-center text-secondary flex-shrink-0">
-              <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
-            </div>
-            <div>
-              <span class="block font-label-md text-primary text-xs uppercase tracking-wider">US-FDA Approved</span>
-              <span class="text-[10px] md:text-xs text-on-surface-variant/80">Clinical Standard Technology</span>
-            </div>
-          </div>
+      <div class="hero-animate-fade lg:col-span-6 h-full flex items-center justify-center lg:justify-end transition-all" style="transition-delay: 450ms;">
+        <div class="relative w-full max-w-[560px] lg:max-w-none">
+          <img class="w-full h-auto object-cover rounded-2xl shadow-xl border border-secondary/10" 
+               alt="Healthy Skin, Confident You" 
+               src="./assets/images/heroImage.jpg">
         </div>
       </div>
     </div>
@@ -624,7 +643,9 @@
 <footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-section-padding border-t border-secondary/20">
 <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="col-span-1 md:col-span-1">
-<span class="font-headline-lg text-headline-lg text-on-primary mb-4 block">Tridha Roopveda</span>
+<a class="flex items-center mb-4" href="./index.html">
+  <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 w-auto object-contain brightness-0 invert">
+</a>
 <p class="font-body-md text-on-primary/80 leading-relaxed">
                     Pioneering the synthesis of aesthetic medicine and traditional wellness. Your journey to radiant skin begins here.
                 </p>
@@ -661,6 +682,36 @@
 <p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Tridha Roopveda. Advanced Dermatology &amp; Aesthetics. All Rights Reserved.</p>
 </div>
 </footer><script>
+        // Startup Overlay Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('startup-overlay');
+            const video = document.getElementById('startup-video');
+            
+            const finishStartup = () => {
+                if (overlay && !overlay.classList.contains('opacity-0')) {
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.classList.remove('loading');
+                    document.body.classList.add('loaded');
+                    setTimeout(() => {
+                        overlay.remove();
+                    }, 1000);
+                }
+            };
+
+            if (video) {
+                video.addEventListener('ended', finishStartup);
+                const fallbackTimeout = setTimeout(finishStartup, 6000);
+                
+                video.play().catch(err => {
+                    console.log("Autoplay blocked or video error, showing site:", err);
+                    finishStartup();
+                    clearTimeout(fallbackTimeout);
+                });
+            } else {
+                finishStartup();
+            }
+        });
+
         // Mobile menu toggle logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
