@@ -129,12 +129,64 @@
         }
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal-on-scroll.visible {
+        .reveal-on-scroll.active {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        @keyframes menu-btn-entrance {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-menu-btn {
+            animation: menu-btn-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @media (max-width: 768px) {
+            .reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale {
+                transition-duration: 0.6s !important;
+                transform: translateY(15px) !important;
+            }
+            .reveal-on-scroll.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
+                transform: translateY(0) !important;
+            }
         }
     </style>
 </head>
@@ -156,8 +208,8 @@
       <a href="./contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:bg-primary-container text-center">
         Book Appointment
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-1" aria-label="Toggle Menu">
-        <span class="material-symbols-outlined text-3xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-outline-variant/20 text-primary shadow-sm active:scale-95 transition-all animate-menu-btn" aria-label="Toggle Menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
   </div>
@@ -199,7 +251,7 @@
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <!-- Left Column: Copy & Call to Action -->
-      <div class="lg:col-span-7 flex flex-col justify-center text-left">
+      <div class="lg:col-span-7 flex flex-col justify-center text-left reveal-left">
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] mb-4 font-semibold block">
           Our Treatments
         </span>
@@ -238,7 +290,7 @@
       </div>
       
       <!-- Right Column: Circular Visual with Gold Leaf Art & Decorative Rings -->
-      <div class="lg:col-span-5 flex items-center justify-center relative">
+      <div class="lg:col-span-5 flex items-center justify-center relative reveal-right">
         <!-- Decorative Offset Rings -->
         <div class="absolute w-[340px] h-[340px] sm:w-[380px] sm:h-[380px] md:w-[460px] md:h-[460px] border border-secondary/15 rounded-full scale-102 pointer-events-none -z-10 animate-[spin_60s_linear_infinite]"></div>
         <div class="absolute w-[360px] h-[360px] sm:w-[400px] sm:h-[400px] md:w-[485px] md:h-[485px] border border-dashed border-primary/10 rounded-full scale-105 pointer-events-none -z-10 animate-[spin_100s_linear_infinite_reverse]"></div>
@@ -404,7 +456,7 @@
     <!-- 12 Cards Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-gutter">
       <!-- Card 1: Laser Hair Reduction -->
-      <div id="treatment-laser-hair" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-laser-hair" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/laser_hair.png" 
@@ -434,7 +486,7 @@
       </div>
 
       <!-- Card 2: Hydra Facial -->
-      <div id="treatment-hydra-facial" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-hydra-facial" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/hydra_facial.png" 
@@ -464,7 +516,7 @@
       </div>
 
       <!-- Card 3: Carbon Laser Facial -->
-      <div id="treatment-carbon-laser" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-carbon-laser" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/carbon_laser.png" 
@@ -498,7 +550,7 @@
       </div>
 
       <!-- Card 4: Anti-Aging Treatment -->
-      <div id="treatment-anti-aging" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-anti-aging" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/anti_aging.png" 
@@ -528,7 +580,7 @@
       </div>
 
       <!-- Card 5: Acne & Acne Scar Treatment -->
-      <div id="treatment-acne-scar" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-acne-scar" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/acne_scar.png" 
@@ -558,7 +610,7 @@
       </div>
 
       <!-- Card 6: Chemical Peel -->
-      <div id="treatment-chemical-peel" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-chemical-peel" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/chemical_peel.png" 
@@ -588,7 +640,7 @@
       </div>
 
       <!-- Card 7: Skin Brightening -->
-      <div id="treatment-skin-brightening" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-skin-brightening" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/skin_brightening.png" 
@@ -618,7 +670,7 @@
       </div>
 
       <!-- Card 8: Pigmentation Treatment -->
-      <div id="treatment-pigmentation" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-pigmentation" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/pigmentation.png" 
@@ -650,7 +702,7 @@
       </div>
 
       <!-- Card 9: Skin Rejuvenation -->
-      <div id="treatment-skin-rejuvenation" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-skin-rejuvenation" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/skin_rejuvenation.png" 
@@ -680,7 +732,7 @@
       </div>
 
       <!-- Card 10: Open Pore Reduction -->
-      <div id="treatment-open-pores" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-open-pores" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full reveal-scale">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/open_pores.png" 
@@ -1040,18 +1092,18 @@
 
         // Reveal on scroll logic
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.05
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('active');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
 
         // FAQ Accordion logic
         document.querySelectorAll('.faq-trigger').forEach(trigger => {

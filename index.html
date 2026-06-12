@@ -181,6 +181,69 @@
             opacity: 0;
             transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* Premium Scroll Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        @keyframes menu-btn-entrance {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-menu-btn {
+            animation: menu-btn-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @media (max-width: 768px) {
+            .reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale {
+                transition-duration: 0.6s !important;
+                transform: translateY(15px) !important;
+            }
+            .reveal-on-scroll.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
+                transform: translateY(0) !important;
+            }
+        }
     </style>
 
 
@@ -201,8 +264,8 @@
       <a href="./contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:bg-primary-container text-center">
         Book Appointment
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-1" aria-label="Toggle Menu">
-        <span class="material-symbols-outlined text-3xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-outline-variant/20 text-primary shadow-sm active:scale-95 transition-all animate-menu-btn" aria-label="Toggle Menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
   </div>
@@ -324,15 +387,15 @@
   </div>
 </section>
 <!-- Section 2: Introduction -->
-<section class="py-12 md:py-section-padding bg-surface">
+<section class="py-12 md:py-section-padding bg-surface overflow-hidden">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
-<div class="relative group">
+<div class="relative group reveal-left">
 <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene treatment room in an upscale skincare clinic featuring advanced medical equipment and a comfortable treatment bed. The room is decorated in ivory and soft gold tones, with a minimalist aesthetic and a focus on clean, sterile medical luxury. Soft sunlight filters through sheer curtains, emphasizing the clinic's focus on healing and tranquility." src="./assets/images/img_8dfd93a9008d.jpg">
 </div>
 <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-fixed/30 rounded-full blur-3xl z-0"></div>
 </div>
-<div class="space-y-8 px-4 md:px-0">
+<div class="space-y-8 px-4 md:px-0 reveal-right">
 <h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary leading-tight">Welcome To Tridha Roopveda</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant">
                         At Tridha Roopveda, we believe beauty is a balance of science and soul. Our approach combines clinical dermatology with the holistic principles of wellness to deliver results that are not just visible, but sustainable. We specialize in bespoke aesthetic journeys tailored to your unique skin profile.
@@ -379,14 +442,14 @@
 </div>
 </section>
 <!-- Section 3: Featured Treatments -->
-<section class="py-12 md:py-section-padding bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-10 md:mb-16">
+<section class="py-12 md:py-section-padding bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-10 md:mb-16 reveal-on-scroll">
 <h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary mb-4">Featured Treatments</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover our signature medical-grade aesthetic procedures designed for transformative results.</p>
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
 <!-- Card 1 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A professional laser hair removal procedure being performed on a patient's arm. The laser device emits a concentrated beam of light, while the skin is protected by a cooling gel. The environment is a clean, bright medical suite with high-key lighting, emphasizing safety, precision, and clinical hygiene in a luxury aesthetic setting." src="./assets/images/img_d38082d3d694.jpg">
 </div>
@@ -397,7 +460,7 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A patient receiving a HydraFacial treatment in a high-end spa. The specialized wand is seen gently exfoliating and hydrating the facial skin, leaving a healthy glow. The background is softly blurred, focusing on the dewy, rejuvenated texture of the skin under pristine clinic lighting and a palette of warm ivories and soft gold." src="./assets/images/img_acde6040c2df.jpg">
 </div>
@@ -408,7 +471,7 @@
 </div>
 </div>
 <!-- Card 3 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A chemical peel application by a dermatologist in a professional setting. A smooth brush is applying a medical-grade solution to a person's face. The lighting is clinical and bright, highlighting the focus on skin texture and medical expertise. The overall aesthetic is minimalist, clean, and sophisticated." src="./assets/images/img_3e7622d5557c.jpg">
 </div>
@@ -419,7 +482,7 @@
 </div>
 </div>
 <!-- Card 4 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Detailed macro shot of clear, radiant skin being treated for acne in a clinical setting. Advanced light therapy or a precise medical application is suggested by a subtle lens flare and clean, high-key lighting. The image emphasizes a scientific approach to skin health and the purity of the results." src="./assets/images/img_5a56d2fcca7d.jpg">
 </div>
@@ -430,7 +493,7 @@
 </div>
 </div>
 <!-- Card 5 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A sophisticated anti-aging skin treatment session. A dermatologist uses a professional device for skin tightening on a patient's face. The atmosphere is one of high-end luxury and scientific precision, with a color palette of gold, ivory, and soft warm light emphasizing youth and vitality." src="./assets/images/img_0414fcb9c90e.jpg">
 </div>
@@ -441,7 +504,7 @@
 </div>
 </div>
 <!-- Card 6 -->
-<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col">
+<div class="glass-card rounded-2xl overflow-hidden gold-glow transition-all duration-500 group flex flex-col reveal-scale">
 <div class="h-64 overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close up of a glowing face after a skin brightening treatment. The skin looks luminous, dewy, and perfectly even-toned. The lighting is ethereal and bright, using soft-focus elements to suggest a 'glow from within' effect, consistent with a high-end luxury aesthetic and premium dermatological care." src="./assets/images/img_90b80e7bd4e8.jpg">
 </div>
@@ -466,9 +529,9 @@
   </div>
 
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-    <div class="grid grid-cols-12 gap-6 lg:gap-12 items-center">
+    <div class="grid grid-cols-12 gap-6 lg:gap-12 items-center overflow-hidden">
       <!-- Left Side: Asymmetric Heading & CTA -->
-      <div class="col-span-12 lg:col-span-5 space-y-6 md:space-y-8">
+      <div class="col-span-12 lg:col-span-5 space-y-6 md:space-y-8 reveal-left">
         <div class="space-y-4">
           <span class="font-label-md text-secondary-fixed tracking-[0.3em] uppercase block">Our Philosophy</span>
           <h2 class="font-display-lg text-3xl sm:text-4xl md:text-5xl lg:text-display-lg text-white leading-tight italic">
@@ -484,7 +547,7 @@
       </div>
 
       <!-- Right Side: Enhanced Feature Cards with Glassmorphism -->
-      <div class="col-span-12 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="col-span-12 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 reveal-right">
         <!-- Card 1 -->
         <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl space-y-4 hover:bg-white/20 transition-all duration-500 group">
           <div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -521,12 +584,12 @@
     </div>
   </div></section>
 <!-- Section 5: Before & After -->
-<section class="py-12 md:py-section-padding bg-surface overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-10 md:mb-16">
+<section class="relative py-12 md:py-section-padding bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-10 md:mb-16 reveal-on-scroll">
 <h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary">Visible Transformation</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">See the real-life results achieved through our dedicated treatment plans.</p>
 </div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop reveal-scale">
 <div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border-4 border-secondary-fixed/20 group">
 <!-- Before Image -->
 <div class="absolute inset-0">
@@ -549,9 +612,9 @@
 </div>
 </section>
 <!-- Section 6: Testimonials -->
-<section class="py-12 md:py-section-padding bg-surface-container-highest/30">
+<section class="py-12 md:py-section-padding bg-surface-container-highest/30 overflow-hidden">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-8 reveal-on-scroll">
 <div class="px-4 md:px-0">
 <h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary">Voices of Confidence</h2>
 <p class="text-on-surface-variant mt-4">Hear from those who entrusted their transformation to us.</p>
@@ -566,7 +629,7 @@
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="glass-card p-10 rounded-2xl space-y-6">
+<div class="glass-card p-10 rounded-2xl space-y-6 reveal-scale">
 <div class="flex text-secondary-fixed">
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
@@ -583,7 +646,7 @@
 </div>
 </div>
 </div>
-<div class="glass-card p-10 rounded-2xl space-y-6">
+<div class="glass-card p-10 rounded-2xl space-y-6 reveal-scale">
 <div class="flex text-secondary-fixed">
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
@@ -600,7 +663,7 @@
 </div>
 </div>
 </div>
-<div class="glass-card p-10 rounded-2xl space-y-6">
+<div class="glass-card p-10 rounded-2xl space-y-6 reveal-scale">
 <div class="flex text-secondary-fixed">
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
 <span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
@@ -623,13 +686,13 @@
 <!-- Section 7: Clinic Experience (Parallax) -->
 <section class="py-12 md:py-section-padding bg-surface overflow-hidden">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-12 gap-6 lg:gap-gutter items-center">
-<div class="col-span-12 lg:col-span-7">
+<div class="grid grid-cols-12 gap-6 lg:gap-gutter items-center overflow-hidden">
+<div class="col-span-12 lg:col-span-7 reveal-left">
 <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
 <img class="w-full h-full object-cover" data-alt="A wide-angle editorial shot of the clinic's reception and lounge area. The space features minimalist white architecture, curved wood panels, and elegant gold light fixtures. The mood is calm, upscale, and pristine, echoing the luxury and scientific precision of the Tridha Roopveda brand." src="./assets/images/img_27595b691d81.jpg">
 </div>
 </div>
-<div class="col-span-12 lg:col-span-5 space-y-8 lg:-ml-20 z-10">
+<div class="col-span-12 lg:col-span-5 space-y-8 lg:-ml-20 z-10 reveal-right">
 <div class="glass-card p-8 md:p-12 rounded-3xl space-y-6 shadow-xl">
 <h2 class="font-headline-xl text-3xl md:text-headline-xl text-primary">A Magazine-Style Experience</h2>
 <p class="font-body-lg text-on-surface-variant">We believe the environment is part of the cure. Every corner of Tridha Roopveda is curated to instill peace and confidence.</p>
@@ -656,8 +719,8 @@
 </div>
 </section>
 <!-- Section 8: CTA Banner -->
-<section class="py-12 md:py-section-padding px-margin-mobile">
-<div class="max-w-container-max mx-auto bg-secondary-fixed/20 rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden">
+<section class="py-12 md:py-section-padding px-margin-mobile overflow-hidden">
+<div class="max-w-container-max mx-auto bg-secondary-fixed/20 rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden reveal-scale">
 <!-- Background texture simulation -->
 <div class="absolute inset-0 opacity-10 pointer-events-none">
 <svg height="100%" width="100%">
@@ -878,6 +941,21 @@
                 );
             }
         });
+
+        // Intersection Observer for scroll reveal animations
+        const observerOptions = {
+            threshold: 0.05
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
     </script>
 
 

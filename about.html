@@ -61,11 +61,63 @@
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-on-scroll.active {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        @keyframes menu-btn-entrance {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-menu-btn {
+            animation: menu-btn-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @media (max-width: 768px) {
+            .reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale {
+                transition-duration: 0.6s !important;
+                transform: translateY(15px) !important;
+            }
+            .reveal-on-scroll.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
+                transform: translateY(0) !important;
+            }
         }
     </style>
 <script id="tailwind-config">
@@ -181,8 +233,8 @@
       <a href="./contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:bg-primary-container text-center">
         Book Appointment
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-1" aria-label="Toggle Menu">
-        <span class="material-symbols-outlined text-3xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-outline-variant/20 text-primary shadow-sm active:scale-95 transition-all animate-menu-btn" aria-label="Toggle Menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
   </div>
@@ -224,7 +276,7 @@
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <!-- Left Column: Copy & Call to Action -->
-      <div class="lg:col-span-7 flex flex-col justify-center text-left reveal-on-scroll">
+      <div class="lg:col-span-7 flex flex-col justify-center text-left reveal-left">
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] mb-4 font-semibold block">
           About Us
         </span>
@@ -247,7 +299,7 @@
       </div>
       
       <!-- Right Column: Arch Visual with Gold Leaf Art -->
-      <div class="lg:col-span-5 flex items-center justify-center relative reveal-on-scroll">
+      <div class="lg:col-span-5 flex items-center justify-center relative reveal-right">
         <!-- Gold Leaf SVGs behind the circle -->
         <div class="absolute -top-12 -right-8 w-40 h-40 opacity-40 -z-10 text-secondary pointer-events-none">
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -290,7 +342,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
       <!-- Left Column: Portrait & Badge -->
-      <div class="lg:col-span-5 flex items-center justify-center relative reveal-on-scroll">
+      <div class="lg:col-span-5 flex items-center justify-center relative reveal-left">
         <div class="relative w-full max-w-[380px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/15">
           <img class="w-full h-full object-cover" 
                src="./assets/images/about_doctor.png" 
@@ -306,7 +358,7 @@
       </div>
       
       <!-- Right Column: Philosophy & Credentials -->
-      <div class="lg:col-span-7 text-left space-y-6 reveal-on-scroll">
+      <div class="lg:col-span-7 text-left space-y-6 reveal-right">
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#795900] font-semibold block">
           Expertise You Can Trust
         </span>
@@ -378,8 +430,8 @@
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <!-- Left: Image -->
-      <div class="lg:col-span-5 flex items-center justify-center order-2 lg:order-1 reveal-on-scroll">
+      <!-- Left Column: Image Arch -->
+      <div class="lg:col-span-5 flex items-center justify-center order-2 lg:order-1 reveal-left">
         <div class="relative w-full max-w-[420px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
           <img class="w-full h-full object-cover" 
                src="./assets/images/about_story.png" 
@@ -387,8 +439,8 @@
         </div>
       </div>
       
-      <!-- Right: Content -->
-      <div class="lg:col-span-7 text-left space-y-6 order-1 lg:order-2 reveal-on-scroll">
+      <!-- Right Column: Copy -->
+      <div class="lg:col-span-7 text-left space-y-6 order-1 lg:order-2 reveal-right">
         <div class="flex items-center gap-3">
           <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#795900] font-semibold">
             Our Story
@@ -440,7 +492,8 @@
       <div class="w-24 h-0.5 bg-secondary mx-auto mt-4"></div>
     </div>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 lg:divide-x divide-outline-variant/30 reveal-on-scroll">
+    <!-- Stats Row Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 lg:divide-x divide-outline-variant/30 reveal-scale">
       <!-- Value 1 -->
       <div class="text-center p-6 space-y-4">
         <!-- SVG Mortar/Pestle -->
@@ -501,8 +554,8 @@
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <!-- Left Column: Copy & Indicators -->
-      <div class="lg:col-span-6 text-left space-y-6 reveal-on-scroll">
+      <!-- Left Column: Text & Accolades -->
+      <div class="lg:col-span-6 text-left space-y-6 reveal-left">
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] font-semibold block">
           The Power of Nature
         </span>
@@ -559,8 +612,8 @@
         </div>
       </div>
       
-      <!-- Right Column: Image Grid -->
-      <div class="lg:col-span-6 flex items-center justify-center reveal-on-scroll">
+      <!-- Right Column: Doctor Portrait -->
+      <div class="lg:col-span-6 flex items-center justify-center reveal-right">
         <div class="relative w-full max-w-[500px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
           <img class="w-full h-full object-cover" 
                src="./assets/images/about_nature.png" 
@@ -576,8 +629,8 @@
 <section class="py-16 md:py-24 bg-white">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      <!-- Left Column -->
-      <div class="lg:col-span-4 text-left space-y-4 reveal-on-scroll">
+      <!-- Left Column: Copy -->
+      <div class="lg:col-span-4 text-left space-y-4 reveal-left">
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] font-semibold block">
           Our Promise
         </span>
@@ -589,8 +642,8 @@
         </p>
       </div>
       
-      <!-- Right Column: Stats counters -->
-      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 reveal-on-scroll">
+      <!-- Right Column: Grid -->
+      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 reveal-right">
         <!-- Stat 1 -->
         <div class="text-center space-y-2">
           <!-- Unique Icon 9: Flower Blooming -->
@@ -766,7 +819,7 @@
 
         // Intersection Observer for scroll animations
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.05
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -777,7 +830,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
 
         // Navbar Scroll Effect (Capsule Header)
         const nav = document.querySelector('nav');
