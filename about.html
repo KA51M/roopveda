@@ -9,6 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html, body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            overflow-x: hidden;
+            width: 100%;
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -154,7 +165,7 @@
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
+<nav class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
   <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-1">
     <a class="flex items-center" href="./index.html">
       <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 md:h-12 w-auto object-contain">
@@ -204,270 +215,528 @@
   </div>
 </nav>
 <main>
-<!-- Section 1: Premium Banner -->
-<section class="relative h-[50vh] md:h-[600px] min-h-[400px] flex items-center overflow-hidden">
-<div class="absolute inset-0">
-<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A wide-angle, cinematic photograph of a high-end luxury medical clinic interior. The space features white marble floors, warm ivory walls, and soft recessed gold lighting. Minimalist furniture in beige and charcoal accents the waiting area, creating a serene and clinical yet welcoming atmosphere. The overall mood is sophisticated and pristine, reflecting a blend of medical precision and spa-like luxury." src="./assets/images/img_b0e91bcde9fe.jpg">
-<div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent"></div>
-</div>
-<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full text-white">
-<span class="font-label-md text-label-md uppercase tracking-[0.3em] mb-4 block">Excellence in Aesthetics</span>
-<h1 class="font-display-lg text-4xl sm:text-5xl md:text-6xl lg:text-display-lg mb-6 leading-none">About Tridha Roopveda</h1>
-<p class="font-body-lg text-base md:text-body-lg max-w-xl opacity-90">Where ancient Ayurvedic wisdom meets cutting-edge dermatological science to reveal your most radiant self.</p>
-</div>
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center bg-[#fef8f1] overflow-hidden py-16 lg:py-24">
+  <!-- Decorative background elements -->
+  <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#795900]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[#73001a]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left Column: Copy & Call to Action -->
+      <div class="lg:col-span-7 flex flex-col justify-center text-left reveal-on-scroll">
+        <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] mb-4 font-semibold block">
+          About Us
+        </span>
+        <h1 class="font-['Playfair_Display'] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#2d2c2a] leading-[1.15] tracking-tight">
+          Rooted in Ayurveda.<br><span class="text-primary">Dedicated to You.</span>
+        </h1>
+        <p class="font-body-lg text-base sm:text-lg text-[#595754] max-w-xl mt-6 leading-relaxed">
+          At Tridha Roopveda, we blend ancient Ayurvedic wisdom with modern skincare science to help you look and feel your most radiant self.
+        </p>
+        
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#our-story" class="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-container px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded-full shadow-lg active:scale-95">
+            <span>Discover Our Story</span>
+            <svg class="w-4 h-4 text-[#ffdfa0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z"/>
+              <path d="M12 21V9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Column: Arch Visual with Gold Leaf Art -->
+      <div class="lg:col-span-5 flex items-center justify-center relative reveal-on-scroll">
+        <!-- Gold Leaf SVGs behind the circle -->
+        <div class="absolute -top-12 -right-8 w-40 h-40 opacity-40 -z-10 text-secondary pointer-events-none">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M10 90 Q 50 50 90 10" stroke-linecap="round"/>
+            <path d="M50 50 Q 70 30 80 40 Q 60 60 50 50" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M30 70 Q 50 50 60 60 Q 40 80 30 70" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M70 30 Q 85 15 90 25 Q 75 40 70 30" fill="currentColor" fill-opacity="0.1"/>
+          </svg>
+        </div>
+        <div class="absolute -bottom-8 -left-8 w-40 h-40 opacity-40 -z-10 text-secondary pointer-events-none">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M90 90 Q 50 50 10 10" stroke-linecap="round"/>
+            <path d="M50 50 Q 30 30 20 40 Q 40 60 50 50" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M70 70 Q 50 50 40 60 Q 60 80 70 70" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M30 30 Q 15 15 10 25 Q 25 40 30 30" fill="currentColor" fill-opacity="0.1"/>
+          </svg>
+        </div>
+        
+        <!-- Classic Arch Frame -->
+        <div class="relative w-72 h-[420px] sm:w-80 sm:h-[460px] md:w-[360px] md:h-[500px] rounded-t-[18rem] overflow-hidden border-8 border-white shadow-2xl z-10 transition-transform duration-700 hover:scale-102">
+          <img class="w-full h-full object-cover" 
+               alt="Rooted in Ayurveda" 
+               src="./assets/images/about_hero.png">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Section 2: Our Story -->
-<section class="py-12 md:py-section-padding bg-surface">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
-<div class="relative reveal-on-scroll px-4 md:px-0">
-<img class="w-full aspect-[4/5] object-cover rounded-lg shadow-xl" data-alt="An editorial-style photograph showing a close-up of a high-tech dermatological laser handpiece resting on a white clinical surface next to a glass bowl of saffron threads and rose petals. The lighting is soft and high-key, highlighting the contrast between medical technology and traditional wellness ingredients. The aesthetic is clean, minimalist, and luminous." src="./assets/images/img_5eedfd2ccf64.jpg">
-<div class="absolute -bottom-10 -right-10 w-48 h-48 glass-card flex items-center justify-center p-8 text-center rounded-lg border border-secondary/20 hidden md:flex">
-<p class="font-headline-md text-headline-md text-primary">15+ Years of Excellence</p>
-</div>
-</div>
-<div class="reveal-on-scroll px-4 md:px-0">
-<h2 class="font-headline-xl text-3xl md:text-headline-xl mb-8 text-on-surface">The Alchemy of Science &amp; Heritage</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed">
-                        Tridha Roopveda was born from a vision to provide more than just skin treatments. We envisioned a sanctuary where clinical dermatology and holistic wellness converge. Founded on the principles of precision, purity, and performance, we curate personalized journeys that address both the surface and the spirit.
-                    </p>
-<!-- Timeline -->
-<div class="space-y-8">
-<div class="flex gap-6 items-start">
-<div class="flex-none w-16 font-label-md text-label-md text-secondary pt-1">2009</div>
-<div>
-<h4 class="font-headline-md text-headline-md mb-1">Foundation</h4>
-<p class="text-on-surface-variant text-body-md">Established as a specialized skin clinic in the heart of the city.</p>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<div class="flex-none w-16 font-label-md text-label-md text-secondary pt-1">2014</div>
-<div>
-<h4 class="font-headline-md text-headline-md mb-1">Growth</h4>
-<p class="text-on-surface-variant text-body-md">Integration of advanced European laser technologies and Ayurvedic labs.</p>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<div class="flex-none w-16 font-label-md text-label-md text-secondary pt-1">2019</div>
-<div>
-<h4 class="font-headline-md text-headline-md mb-1">Expansion</h4>
-<p class="text-on-surface-variant text-body-md">Inauguration of our flagship aesthetic center with luxury suites.</p>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<div class="flex-none w-16 font-label-md text-label-md text-secondary pt-1">2024</div>
-<div>
-<h4 class="font-headline-md text-headline-md mb-1">Modern Facility</h4>
-<p class="text-on-surface-variant text-body-md">A state-of-the-art facility redefining premium skincare standards.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Medical Director Section -->
+<section id="medical-director" class="py-16 md:py-24 bg-white relative overflow-hidden">
+  <!-- Subtle botanical SVG backdrop -->
+  <div class="absolute right-0 bottom-0 w-80 h-80 opacity-5 text-secondary pointer-events-none">
+    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+      <path d="M10 90 Q 50 50 90 10 M50 50 Q 70 30 80 40 M30 70 Q 50 50 60 60" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Portrait & Badge -->
+      <div class="lg:col-span-5 flex items-center justify-center relative reveal-on-scroll">
+        <div class="relative w-full max-w-[380px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/15">
+          <img class="w-full h-full object-cover" 
+               src="./assets/images/about_doctor.png" 
+               alt="Dr. Ananya Sharma">
+          <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-secondary/10">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+              <p class="font-label-md text-xs uppercase tracking-wider text-primary font-bold">Founder & Lead Dermatologist</p>
+            </div>
+            <p class="font-body-md text-xs text-[#595754] mt-1">18+ Years of Aesthetic Medicine</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Philosophy & Credentials -->
+      <div class="lg:col-span-7 text-left space-y-6 reveal-on-scroll">
+        <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#795900] font-semibold block">
+          Expertise You Can Trust
+        </span>
+        <h2 class="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl text-primary font-normal leading-tight">
+          Dr. Ananya Sharma
+        </h2>
+        <p class="font-label-md text-xs sm:text-sm text-[#5c4300] uppercase tracking-widest font-semibold border-b border-outline-variant/30 pb-3">
+          MD, FAAD — Specialist in Cosmetic Dermatology & Laser Medicine
+        </p>
+        
+        <!-- Personal Quote -->
+        <div class="relative pl-6 border-l-4 border-secondary/50 py-2 my-6">
+          <span class="absolute left-1 top-0 text-secondary text-5xl font-serif leading-none select-none">“</span>
+          <p class="font-['Playfair_Display'] text-lg sm:text-xl text-[#2d2c2a] italic leading-relaxed">
+            True skin health is a reflection of internal balance and advanced scientific care. At Tridha Roopveda, we don't just treat skin; we nurture it back to its natural, radiant state.
+          </p>
+        </div>
+
+        <p class="font-body-md text-[#595754] text-base leading-relaxed">
+          Dr. Ananya Sharma has dedicated nearly two decades to mastering aesthetic dermatology, merging cutting-edge Western clinical science with deep respect for Ayurvedic botanical wisdom. Her customized treatment protocols focus on delivering natural, glowing results with minimal downtime.
+        </p>
+
+        <!-- Credentials Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+          <div class="bg-[#fcf9f5] p-5 rounded-2xl border border-secondary/10 flex gap-4 items-start shadow-sm">
+            <span class="material-symbols-outlined text-secondary text-2xl pt-0.5">school</span>
+            <div>
+              <h5 class="font-label-md text-xs uppercase text-primary font-bold mb-1">Education</h5>
+              <p class="font-body-md text-sm text-[#595754]">Stanford Medical School Alumna</p>
+            </div>
+          </div>
+          <div class="bg-[#fcf9f5] p-5 rounded-2xl border border-secondary/10 flex gap-4 items-start shadow-sm">
+            <span class="material-symbols-outlined text-secondary text-2xl pt-0.5">workspace_premium</span>
+            <div>
+              <h5 class="font-label-md text-xs uppercase text-primary font-bold mb-1">Accreditation</h5>
+              <p class="font-body-md text-sm text-[#595754]">Board-Certified MD, FAAD</p>
+            </div>
+          </div>
+          <div class="bg-[#fcf9f5] p-5 rounded-2xl border border-secondary/10 flex gap-4 items-start shadow-sm">
+            <span class="material-symbols-outlined text-secondary text-2xl pt-0.5">spa</span>
+            <div>
+              <h5 class="font-label-md text-xs uppercase text-primary font-bold mb-1">Specialization</h5>
+              <p class="font-body-md text-sm text-[#595754]">Ayurvedic Dermato-Science Integration</p>
+            </div>
+          </div>
+          <div class="bg-[#fcf9f5] p-5 rounded-2xl border border-secondary/10 flex gap-4 items-start shadow-sm">
+            <span class="material-symbols-outlined text-secondary text-2xl pt-0.5">biotech</span>
+            <div>
+              <h5 class="font-label-md text-xs uppercase text-primary font-bold mb-1">Laser Expertise</h5>
+              <p class="font-body-md text-sm text-[#595754]">Laser Resurfacing & Advanced Facials</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6">
+          <a href="./contact.html" class="inline-flex items-center gap-2 text-primary font-label-md text-sm uppercase tracking-wider pb-1 border-b border-primary/30 hover:border-secondary hover:text-secondary transition-all">
+            <span>Schedule a consultation with Dr. Sharma</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </section>
-<!-- Section 3: Mission & Vision -->
-<section class="py-12 md:py-section-padding bg-surface-container-low overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="glass-card p-12 rounded-2xl gold-glow border-t-4 border-t-secondary/40 reveal-on-scroll">
-<span class="material-symbols-outlined text-5xl text-secondary mb-6" data-icon="auto_awesome">auto_awesome</span>
-<h3 class="font-headline-lg text-headline-lg mb-6">Our Mission</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        To empower every individual with the confidence of healthy, glowing skin through an unparalleled fusion of medical expertise and traditional care, ensuring safety and excellence in every pulse.
-                    </p>
-</div>
-<div class="glass-card p-12 rounded-2xl gold-glow border-t-4 border-t-secondary/40 reveal-on-scroll">
-<span class="material-symbols-outlined text-5xl text-secondary mb-6" data-icon="visibility">visibility</span>
-<h3 class="font-headline-lg text-headline-lg mb-6">Our Vision</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        To be the global benchmark for luxury clinical skincare, where innovation serves humanity and every treatment is a masterpiece of scientific precision and holistic harmony.
-                    </p>
-</div>
-</div>
+
+<!-- Our Story Section -->
+<section id="our-story" class="py-16 md:py-24 bg-[#fef8f1] border-t border-outline-variant/10">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left: Image -->
+      <div class="lg:col-span-5 flex items-center justify-center order-2 lg:order-1 reveal-on-scroll">
+        <div class="relative w-full max-w-[420px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
+          <img class="w-full h-full object-cover" 
+               src="./assets/images/about_story.png" 
+               alt="A Legacy of Healing">
+        </div>
+      </div>
+      
+      <!-- Right: Content -->
+      <div class="lg:col-span-7 text-left space-y-6 order-1 lg:order-2 reveal-on-scroll">
+        <div class="flex items-center gap-3">
+          <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#795900] font-semibold">
+            Our Story
+          </span>
+          <div class="w-12 h-px bg-secondary/50"></div>
+          <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 8c.3 0 .7.1.9.4.5.5.5 1.3 0 1.8l-4.5 4.5c-.5.5-1.3.5-1.8 0L9.4 12.9c-.5-.5-.5-1.3 0-1.8l2.2-2.2c.5-.5 1.3-.5 1.8 0L14 9.5c.3-.3.7-.4.9-.4h2.1Z"/>
+          </svg>
+        </div>
+        
+        <h2 class="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl text-primary font-normal leading-tight">
+          A Legacy of Healing,<br>A Vision for Radiance
+        </h2>
+        
+        <div class="space-y-4 text-base text-[#595754] leading-relaxed">
+          <p>
+            Tridha Roopveda was born from a deep belief in the power of Ayurveda – a 5000+ year old science of life that nurtures balance, heals from within, and celebrates natural beauty.
+          </p>
+          <p>
+            We set out to create skincare that is pure, effective, and honest. Every formula we craft is inspired by timeless rituals and backed by modern research – to deliver visible results and long-term skin health.
+          </p>
+        </div>
+        
+        <div class="pt-4">
+          <a href="./contact.html" class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3.5 font-label-md text-xs uppercase tracking-wider transition-all duration-300 rounded-full active:scale-95 shadow-sm">
+            <span>Learn More About Our Journey</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z"/>
+              <path d="M12 21V9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </section>
-<!-- Section 4: Meet The Experts -->
-<section class="py-12 md:py-section-padding bg-surface">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-12 md:mb-20 reveal-on-scroll">
-<h2 class="font-headline-xl text-3xl md:text-headline-xl mb-4">Meet Our Experts</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Led by world-renowned dermatologists dedicated to the art and science of beauty.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-<!-- Doctor 1 -->
-<div class="group reveal-on-scroll">
-<div class="relative overflow-hidden rounded-2xl mb-8">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional portrait of a female senior dermatologist in a crisp white lab coat, smiling warmly. She is standing in a brightly lit, modern medical office. The lighting is flattering and professional, emphasizing a clean and trustworthy medical environment. The color palette is composed of soft whites, warm wood tones, and professional blues." src="./assets/images/img_0f4d7e8c3b0a.jpg">
-<div class="absolute bottom-6 left-6 flex gap-2">
-<span class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-sm text-label-sm shadow-lg">Lead Dermatologist</span>
-<span class="bg-secondary text-on-secondary px-4 py-2 rounded-full font-label-sm text-label-sm shadow-lg">18+ Yrs Exp</span>
-</div>
-</div>
-<h3 class="font-headline-lg text-headline-lg mb-2">Dr. Ananya Sharma</h3>
-<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-6">MD, FAAD (Cosmetic Dermatology)</p>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/30">
-<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Qualification</span>
-<span class="block font-body-md text-body-md font-semibold">Stanford Medical Alumni</span>
-</div>
-<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/30">
-<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Specialization</span>
-<span class="block font-body-md text-body-md font-semibold">Laser Resurfacing</span>
-</div>
-</div>
-</div>
-<!-- Doctor 2 -->
-<div class="group reveal-on-scroll">
-<div class="relative overflow-hidden rounded-2xl mb-8">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional portrait of a male dermatologist in his early 40s wearing a high-end grey medical tunic. He is looking confidently at the camera in a modern clinic corridor with glass partitions and soft warm lighting. The aesthetic is clean, medical, and high-end, focusing on expertise and professional care." src="./assets/images/img_6ca93e64ec8d.jpg">
-<div class="absolute bottom-6 left-6 flex gap-2">
-<span class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-sm text-label-sm shadow-lg">Aesthetic Surgeon</span>
-<span class="bg-secondary text-on-secondary px-4 py-2 rounded-full font-label-sm text-label-sm shadow-lg">12+ Yrs Exp</span>
-</div>
-</div>
-<h3 class="font-headline-lg text-headline-lg mb-2">Dr. Vikram Malhotra</h3>
-<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-6">MBBS, MS (Dermato-Surgery)</p>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/30">
-<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Qualification</span>
-<span class="block font-body-md text-body-md font-semibold">AIIMS New Delhi</span>
-</div>
-<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/30">
-<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Specialization</span>
-<span class="block font-body-md text-body-md font-semibold">Facial Sculpting</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Our Values Section -->
+<section class="py-16 md:py-24 bg-white border-y border-outline-variant/10">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-16 reveal-on-scroll">
+      <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] mb-3 font-semibold block">
+        Our Values
+      </span>
+      <h2 class="font-['Playfair_Display'] text-3xl md:text-5xl text-primary font-normal leading-tight">
+        What We Stand For
+      </h2>
+      <div class="w-24 h-0.5 bg-secondary mx-auto mt-4"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 lg:divide-x divide-outline-variant/30 reveal-on-scroll">
+      <!-- Value 1 -->
+      <div class="text-center p-6 space-y-4">
+        <!-- SVG Mortar/Pestle -->
+        <svg class="w-12 h-12 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+          <path d="M4 9c0 0 0 8 8 8s8-8 8-8H4Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 9h20" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 17v2h8v-2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 3l-5 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="font-['Playfair_Display'] text-xl font-bold text-primary">Ayurvedic Wisdom</h3>
+        <p class="font-body-md text-sm text-[#595754] leading-relaxed">
+          Rooted in ancient traditions that honor the body, mind and soul.
+        </p>
+      </div>
+      <!-- Value 2 -->
+      <div class="text-center p-6 space-y-4 pt-8 sm:pt-6">
+        <!-- SVG Leaf -->
+        <svg class="w-12 h-12 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+          <path d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 21V9" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 12C14 10.5 16.5 10 18.5 10.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 15C10 13.5 7.5 13 5.5 13.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h3 class="font-['Playfair_Display'] text-xl font-bold text-primary">Purity & Safety</h3>
+        <p class="font-body-md text-sm text-[#595754] leading-relaxed">
+          Clean, natural ingredients that are safe for you and the planet.
+        </p>
+      </div>
+      <!-- Value 3 -->
+      <div class="text-center p-6 space-y-4 pt-8 lg:pt-6">
+        <!-- SVG Chemistry Flask -->
+        <svg class="w-12 h-12 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+          <path d="M9 3h6M10 9h4M7 21h10a2 2 0 0 0 2-2.3l-3.5-12.7A2 2 0 0 0 13.6 5H10.4a2 2 0 0 0-1.9 1.3L5 18.7A2 2 0 0 0 7 21Z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="font-['Playfair_Display'] text-xl font-bold text-primary">Science-Backed</h3>
+        <p class="font-body-md text-sm text-[#595754] leading-relaxed">
+          Modern formulations backed by science for real, visible results.
+        </p>
+      </div>
+      <!-- Value 4 -->
+      <div class="text-center p-6 space-y-4 pt-8 lg:pt-6">
+        <!-- SVG Heart Leaf -->
+        <svg class="w-12 h-12 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+          <path d="M12 21C12 21 3 15 3 9.5C3 6.5 5.5 4 8.5 4C10.5 4 11.5 5 12 6C12.5 5 13.5 4 15.5 4C18.5 4 21 6.5 21 9.5C21 15 12 21 12 21Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 9v6" stroke-linecap="round"/>
+        </svg>
+        <h3 class="font-['Playfair_Display'] text-xl font-bold text-primary">Holistic Care</h3>
+        <p class="font-body-md text-sm text-[#595754] leading-relaxed">
+          We care for your skin and your overall well-being – inside and out.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Section 5: Clinic Infrastructure -->
-<section class="py-12 md:py-section-padding bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16 gap-8 px-4 md:px-0">
-<div class="max-w-2xl reveal-on-scroll">
-<h2 class="font-headline-xl text-3xl md:text-headline-xl mb-4">World-Class Infrastructure</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Experience a sanctuary designed for your comfort and safety, equipped with FDA-approved technologies and luxury amenities.</p>
-</div>
-<a class="font-label-md text-label-md text-primary gold-underline pb-1 reveal-on-scroll" href="./gallery.html">View Full Gallery</a>
-</div>
-<!-- Masonry Gallery -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[900px] reveal-on-scroll">
-<div class="md:col-span-8 h-full relative overflow-hidden rounded-2xl group">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A luxury clinic reception area with a minimalist design. A curved white stone desk sits against a wall of vertical wooden slats. Large floor-to-ceiling windows provide soft natural light. There are plush velvet chairs in a soft sand color and a large minimalist flower arrangement. The overall feeling is one of calm, luxury, and meticulous design." src="./assets/images/img_dbc7bdbe72d3.jpg">
-<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-<div class="absolute bottom-10 left-10 text-white">
-<p class="font-label-md text-label-md uppercase tracking-widest">Reception &amp; Lounge</p>
-</div>
-</div>
-<div class="md:col-span-4 grid grid-rows-2 gap-gutter h-full">
-<div class="relative overflow-hidden rounded-2xl group">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Close up of advanced medical laser equipment in a pristine treatment room. The machinery is sleek and modern with digital touchscreens and ergonomic handpieces. The room is softly lit with warm accent lighting, creating a high-tech but comfortable medical environment. The focus is on the precision and quality of the equipment." src="./assets/images/img_b241db282cad.jpg">
-<div class="absolute bottom-6 left-6 text-white">
-<p class="font-label-md text-label-md uppercase tracking-widest">Laser Suite</p>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-2xl group">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A tranquil aesthetic treatment room with a premium hydraulic treatment bed covered in white linens. Soft beige walls, a minimalist shelving unit with glass bottles of serums, and a single stem of an orchid. The lighting is diffused and calm, perfect for a relaxing skincare procedure. The space feels extremely hygienic and high-end." src="./assets/images/img_2ba1916ab828.jpg">
-<div class="absolute bottom-6 left-6 text-white">
-<p class="font-label-md text-label-md uppercase tracking-widest">Treatment Room</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- The Power of Nature Section -->
+<section class="py-16 md:py-24 bg-surface-container-low overflow-hidden">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Copy & Indicators -->
+      <div class="lg:col-span-6 text-left space-y-6 reveal-on-scroll">
+        <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] font-semibold block">
+          The Power of Nature
+        </span>
+        <h2 class="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl text-primary font-normal leading-tight">
+          Pure Ingredients.<br>Powerful Results.
+        </h2>
+        <p class="font-body-lg text-base text-[#595754] leading-relaxed">
+          We handpick the finest herbs, botanicals and natural actives to create gentle yet powerful formulations that work in harmony with your skin.
+        </p>
+        
+        <!-- Icons Grid (2x2) -->
+        <div class="grid grid-cols-2 gap-6 pt-4">
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-secondary shadow-md border border-secondary/10">
+              <!-- Unique Icon 5: Seedling sprouting -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M12 19V6m0 0C9.5 6 6 8.5 6 11c0 2 1.5 3 3 3h3m0-8c2.5 0 6 2.5 6 5c0 2-1.5 3-3 3h-3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 21h18" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="font-label-md text-sm text-[#2d2c2a] font-semibold">Natural Ingredients</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-secondary shadow-md border border-secondary/10">
+              <!-- Unique Icon 6: Toxin Free Beaker with bubbles -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M12 2a5 5 0 0 0-5 5v1h10V7a5 5 0 0 0-5-5Z" stroke-linecap="round"/>
+                <path d="M19 19c0 1.5-1.5 3-3.5 3s-3.5-1.5-3.5-3v-6h7v6Z" stroke-linecap="round"/>
+                <path d="M9 13v4m3-4v4m3-4v4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="font-label-md text-sm text-[#2d2c2a] font-semibold">Toxin Free</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-secondary shadow-md border border-secondary/10">
+              <!-- Unique Icon 7: Bunny / Cruelty Free -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M9 16a3 3 0 1 0 6 0M9 9a2 2 0 1 1 4 0v3m0 0a2 2 0 1 0 4 0v-6a2 2 0 1 0-4 0v4M5 13a4 4 0 0 1 8 0v4m0 0a4 4 0 0 1-8 0v-4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="font-label-md text-sm text-[#2d2c2a] font-semibold">Cruelty Free</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-secondary shadow-md border border-secondary/10">
+              <!-- Unique Icon 8: Globe with eco leaf -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M3.6 9h16.8M3.6 15h16.8" stroke-linecap="round"/>
+                <path d="M12 3a15.3 15.3 0 0 1 4 9 15.3 15.3 0 0 1-4 9 15.3 15.3 0 0 1-4-9 15.3 15.3 0 0 1 4-9Z" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="font-label-md text-sm text-[#2d2c2a] font-semibold">Sustainable Practices</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Image Grid -->
+      <div class="lg:col-span-6 flex items-center justify-center reveal-on-scroll">
+        <div class="relative w-full max-w-[500px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary/10">
+          <img class="w-full h-full object-cover" 
+               src="./assets/images/about_nature.png" 
+               alt="Pure Ingredients">
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </section>
-<!-- Section 6: Core Values -->
-<section class="py-12 md:py-section-padding bg-surface">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-10 md:mb-16 reveal-on-scroll">
-<h2 class="font-headline-xl text-3xl md:text-headline-xl mb-4">Our Core Values</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">The pillars that define the Tridha Roopveda experience.</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 px-4 md:px-0">
-<!-- Value 1 -->
-<div class="text-center group reveal-on-scroll">
-<div class="w-20 h-20 mx-auto glass-card rounded-full flex items-center justify-center mb-6 border border-secondary/20 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-<span class="material-symbols-outlined text-3xl" data-icon="favorite">favorite</span>
-</div>
-<h4 class="font-headline-md text-headline-md mb-2">Care</h4>
-<p class="text-on-surface-variant text-sm">Empathetic patient-first approach in every touchpoint.</p>
-</div>
-<!-- Value 2 -->
-<div class="text-center group reveal-on-scroll">
-<div class="w-20 h-20 mx-auto glass-card rounded-full flex items-center justify-center mb-6 border border-secondary/20 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-<span class="material-symbols-outlined text-3xl" data-icon="verified_user">verified_user</span>
-</div>
-<h4 class="font-headline-md text-headline-md mb-2">Trust</h4>
-<p class="text-on-surface-variant text-sm">Total transparency in diagnosis and treatment plans.</p>
-</div>
-<!-- Value 3 -->
-<div class="text-center group reveal-on-scroll">
-<div class="w-20 h-20 mx-auto glass-card rounded-full flex items-center justify-center mb-6 border border-secondary/20 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-<span class="material-symbols-outlined text-3xl" data-icon="psychology">psychology</span>
-</div>
-<h4 class="font-headline-md text-headline-md mb-2">Innovation</h4>
-<p class="text-on-surface-variant text-sm">Constantly upgrading to the world's latest technologies.</p>
-</div>
-<!-- Value 4 -->
-<div class="text-center group reveal-on-scroll">
-<div class="w-20 h-20 mx-auto glass-card rounded-full flex items-center justify-center mb-6 border border-secondary/20 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-<span class="material-symbols-outlined text-3xl" data-icon="security">security</span>
-</div>
-<h4 class="font-headline-md text-headline-md mb-2">Safety</h4>
-<p class="text-on-surface-variant text-sm">Rigorous adherence to international medical protocols.</p>
-</div>
-<!-- Value 5 -->
-<div class="text-center group reveal-on-scroll">
-<div class="w-20 h-20 mx-auto glass-card rounded-full flex items-center justify-center mb-6 border border-secondary/20 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-<span class="material-symbols-outlined text-3xl" data-icon="award_star">award_star</span>
-</div>
-<h4 class="font-headline-md text-headline-md mb-2">Results</h4>
-<p class="text-on-surface-variant text-sm">Uncompromising commitment to clinical outcomes.</p>
-</div>
-</div>
-</div>
+
+<!-- Our Promise Section -->
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left Column -->
+      <div class="lg:col-span-4 text-left space-y-4 reveal-on-scroll">
+        <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] font-semibold block">
+          Our Promise
+        </span>
+        <h2 class="font-['Playfair_Display'] text-3xl md:text-4xl text-primary font-normal leading-tight">
+          Honest Skincare.<br>Real Transformations.
+        </h2>
+        <p class="font-body-md text-sm text-[#595754] leading-relaxed">
+          We promise to deliver skincare you can trust – effective, ethical, and made with love.
+        </p>
+      </div>
+      
+      <!-- Right Column: Stats counters -->
+      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 reveal-on-scroll">
+        <!-- Stat 1 -->
+        <div class="text-center space-y-2">
+          <!-- Unique Icon 9: Flower Blooming -->
+          <svg class="w-10 h-10 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 9c1.5-3 4.5-3 4.5 0s-3 3-4.5 3m0-3c-1.5-3-4.5-3-4.5 0s3 3 4.5 3m0 0c1.5 3 4.5 3 4.5 0s-3-3-4.5-3m0 0c-1.5 3-4.5 3-4.5 0s3-3 4.5-3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="font-['Playfair_Display'] text-3xl md:text-4xl font-semibold text-primary">100%</div>
+          <p class="font-label-md text-xs uppercase tracking-wider text-[#595754] font-medium">Natural Ingredients</p>
+        </div>
+        <!-- Stat 2 -->
+        <div class="text-center space-y-2">
+          <!-- Unique Icon 10: Happy Face profile silhouette with stars -->
+          <svg class="w-10 h-10 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path d="M16 14c.5-1.5 1.5-2.5 3-2.5s2.5 1 3 2.5m-14-6.5C8 6 9 4 11 4s3 2 3 3.5S13 11 11 11s-3-1.5-3-3.5ZM4 20c0-3 3-5 8-5s8 2 8 5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="font-['Playfair_Display'] text-3xl md:text-4xl font-semibold text-primary">5000+</div>
+          <p class="font-label-md text-xs uppercase tracking-wider text-[#595754] font-medium">Happy Clients</p>
+        </div>
+        <!-- Stat 3 -->
+        <div class="text-center space-y-2">
+          <!-- Unique Icon 11: Scroll / Book -->
+          <svg class="w-10 h-10 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14M4 19a2 2 0 0 0 2 2h14M4 19h14M12 7h4m-4 4h4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="font-['Playfair_Display'] text-3xl md:text-4xl font-semibold text-primary">50+</div>
+          <p class="font-label-md text-xs uppercase tracking-wider text-[#595754] font-medium">Ayurvedic Formulas</p>
+        </div>
+        <!-- Stat 4 -->
+        <div class="text-center space-y-2">
+          <!-- Unique Icon 12: Drop of pure water with slash -->
+          <svg class="w-10 h-10 text-secondary mx-auto" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+            <path d="M12 3v12m0 0c1.5 0 3 1.5 3 3.5S13.5 22 12 22s-3-1.5-3-3.5S10.5 15 12 15Z" stroke-linecap="round"/>
+            <path d="M6 6l12 12" stroke-linecap="round"/>
+          </svg>
+          <div class="font-['Playfair_Display'] text-3xl md:text-4xl font-semibold text-primary">0%</div>
+          <p class="font-label-md text-xs uppercase tracking-wider text-[#595754] font-medium">Harsh Chemicals</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ready to Begin Section -->
+<section class="py-16 md:py-20 bg-primary text-on-primary text-center relative overflow-hidden">
+  <!-- Mandala Backdrop in right side -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 opacity-15 text-on-primary pointer-events-none hidden md:block">
+    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+      <circle cx="50" cy="50" r="45"/>
+      <circle cx="50" cy="50" r="35" stroke-dasharray="2 2"/>
+      <path d="M50 10 A 40 40 0 0 0 50 90 A 40 40 0 0 0 50 10 Z" />
+    </svg>
+  </div>
+  
+  <div class="max-w-4xl mx-auto px-margin-mobile relative z-10 space-y-6">
+    <h2 class="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl text-white font-normal leading-tight">
+      Your Best Skin Starts with the Right Care.
+    </h2>
+    <p class="font-body-lg text-white/80 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+      Book a personalized consultation and let us guide you on your journey to radiant skin.
+    </p>
+    <div class="pt-4">
+      <a href="./contact.html" class="inline-flex items-center gap-2 bg-[#fcf9f5] text-primary hover:bg-[#f3ede6] px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded-full shadow-lg active:scale-95">
+        <span>Book Your Consultation</span>
+        <svg class="w-4 h-4 text-[#795900]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z"/>
+          <path d="M12 21V9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
 </section>
 </main>
+
 <!-- Footer -->
-<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-section-padding border-t border-secondary/20">
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="col-span-1 md:col-span-1">
-<a class="flex items-center mb-4" href="./index.html">
-  <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 w-auto object-contain brightness-0 invert">
-</a>
-<p class="font-body-md text-on-primary/80 leading-relaxed">
-                    Pioneering the synthesis of aesthetic medicine and traditional wellness. Your journey to radiant skin begins here.
-                </p>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Navigation</h4>
-<ul class="space-y-4">
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./index.html">Home</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./about.html">About Us</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Treatments</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./gallery.html">Gallery</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./contact.html">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Popular Treatments</h4>
-<ul class="space-y-4">
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">HydraFacial Elite</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Panchakarma Detox</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Laser Skin Resurfacing</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Ayurvedic Rejuvenation</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Newsletter</h4>
-<p class="font-label-sm text-label-sm text-on-primary/60 mb-4 italic">Receive beauty insights &amp; clinical updates.</p>
-<form class="flex gap-2">
-<input class="bg-primary-container/30 border border-on-primary/20 rounded-lg px-4 py-2 text-on-primary placeholder:text-on-primary/40 focus:outline-none focus:border-secondary-fixed w-full" placeholder="Email Address" type="email">
-<button class="bg-secondary-fixed text-primary px-4 py-2 rounded-lg font-label-md">JOIN</button>
-</form>
-</div>
-</div>
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-16 pt-8 border-t border-on-primary/10 text-center">
-<p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Tridha Roopveda. Advanced Dermatology &amp; Aesthetics. All Rights Reserved.</p>
-</div>
+<footer class="bg-[#f4efe8] text-on-surface w-full py-10 border-t border-secondary/15">
+  <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+    <!-- Col 1 -->
+    <div class="col-span-1 space-y-3">
+      <a class="flex items-center" href="./index.html">
+        <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-9 w-auto object-contain">
+      </a>
+      <p class="font-body-md text-xs text-[#595754] leading-relaxed">
+        Rooted in Ayurveda.<br>Radiant in You.
+      </p>
+      <!-- Social Icons -->
+      <div class="flex gap-3 pt-1">
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- Col 2 -->
+    <div>
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./index.html">Home</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./about.html">About Us</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html">Treatments</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./gallery.html">Gallery</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Col 3 -->
+    <div>
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Popular Services</h4>
+      <ul class="space-y-2">
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-laser-hair">Laser Hair Reduction</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-hydra-facial">Hydra Facial</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-anti-aging">Anti-Aging Treatment</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-bridal-glow">Bridal Glow Program</a></li>
+      </ul>
+    </div>
+    <!-- Col 4 -->
+    <div class="space-y-3">
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Newsletter</h4>
+      <p class="font-label-sm text-xs text-[#595754] italic leading-relaxed">Subscribe to receive skincare tips and clinical updates.</p>
+      <form class="flex gap-2">
+        <input class="bg-white border border-[#d4a32d]/30 rounded-lg px-3 py-1.5 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-[#73001a] w-full shadow-sm text-xs" placeholder="Your email" type="email">
+        <button class="bg-[#73001a] hover:bg-primary-container text-white px-3 py-1.5 rounded-lg flex items-center justify-center transition-all duration-300">
+          <span class="material-symbols-outlined text-xs">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-8 pt-6 border-t border-secondary/10 text-center flex flex-col items-center gap-2">
+    <p class="font-label-sm text-xs text-[#595754]">&copy; 2024 Tridha Roopveda. All Rights Reserved.</p>
+  </div>
 </footer>
 <script>
         // Mobile menu toggle logic
@@ -516,8 +785,6 @@
             if (window.scrollY > 20) {
                 nav.classList.add(
                     'top-4', 
-                    'left-1/2', 
-                    '-translate-x-1/2', 
                     'w-[92%]', 
                     'max-w-container-max', 
                     'bg-surface/85', 
@@ -530,27 +797,19 @@
                 );
                 nav.classList.remove(
                     'top-0', 
-                    'left-0', 
                     'w-full', 
                     'bg-transparent', 
-                    'border-b', 
-                    'border-transparent', 
                     'py-4'
                 );
             } else {
                 nav.classList.add(
                     'top-0', 
-                    'left-0', 
                     'w-full', 
                     'bg-transparent', 
-                    'border-b', 
-                    'border-transparent', 
                     'py-4'
                 );
                 nav.classList.remove(
                     'top-4', 
-                    'left-1/2', 
-                    '-translate-x-1/2', 
                     'w-[92%]', 
                     'max-w-container-max', 
                     'bg-surface/85', 

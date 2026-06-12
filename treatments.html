@@ -99,6 +99,17 @@
         }
     </script>
 <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html, body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            overflow-x: hidden;
+            width: 100%;
+        }
         .glass-card {
             background: rgba(254, 248, 241, 0.7);
             backdrop-filter: blur(20px);
@@ -129,7 +140,7 @@
 </head>
 <body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
+<nav class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50 bg-transparent border-b border-transparent py-4 transition-all duration-500 ease-in-out">
   <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-1">
     <a class="flex items-center" href="./index.html">
       <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 md:h-12 w-auto object-contain">
@@ -178,12 +189,12 @@
     </div>
   </div>
 </nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative min-h-[75vh] flex items-center bg-[#fef8f1] overflow-hidden py-16 lg:py-24">
+<main>
+<section class="relative min-h-[85vh] flex items-center bg-[#fef8f1] overflow-hidden pt-24 pb-20 lg:pt-28 lg:pb-28">
   <!-- Decorative background elements -->
-  <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#795900]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-  <div class="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[#73001a]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute top-1/4 right-0 w-[450px] h-[450px] bg-[#795900]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-1/4 left-0 w-[550px] h-[550px] bg-[#73001a]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute top-10 left-1/3 w-72 h-72 border border-secondary/5 rounded-full pointer-events-none -z-10"></div>
   
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -192,28 +203,48 @@
         <span class="font-label-md text-label-md uppercase tracking-[0.25em] text-[#73001a] mb-4 font-semibold block">
           Our Treatments
         </span>
-        <h1 class="font-['Playfair_Display'] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#2d2c2a] leading-[1.15] tracking-tight">
-          Ancient Wisdom.<br>Modern Radiance.
+        <h1 class="font-['Playfair_Display'] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl text-[#2d2c2a] leading-[1.12] tracking-tight">
+          Ancient Wisdom.<br><span class="text-primary">Modern Radiance.</span>
         </h1>
         <p class="font-body-lg text-base sm:text-lg text-[#595754] max-w-xl mt-6 leading-relaxed">
           Experience the perfect blend of Ayurvedic traditions and advanced skincare to bring out your natural glow from within.
         </p>
         
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="./contact.html" class="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-container px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded-full shadow-md active:scale-95">
+          <a href="./contact.html" class="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-container px-10 py-4 font-label-md text-sm uppercase tracking-wider transition-all duration-300 rounded-full shadow-lg active:scale-95">
             <span>Book Your Consultation</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#ffdfa0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C6 3 3 8.5 3 13.5C3 18.5 7 21 12 21C17 21 21 18.5 21 13.5C21 8.5 18 3 12 3Z"/>
               <path d="M12 21V9" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </div>
+
+        <!-- Trust Indicators Grid -->
+        <div class="grid grid-cols-3 gap-4 border-t border-secondary/15 pt-8 mt-12">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            <span class="font-label-sm text-[10px] sm:text-xs text-[#595754] uppercase tracking-wider font-semibold">Ayurvedic Roots</span>
+          </div>
+          <div class="flex items-center gap-2 border-l border-secondary/15 pl-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            <span class="font-label-sm text-[10px] sm:text-xs text-[#595754] uppercase tracking-wider font-semibold">FDA-Approved Tech</span>
+          </div>
+          <div class="flex items-center gap-2 border-l border-secondary/15 pl-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            <span class="font-label-sm text-[10px] sm:text-xs text-[#595754] uppercase tracking-wider font-semibold">Personalized Care</span>
+          </div>
+        </div>
       </div>
       
-      <!-- Right Column: Circular Visual with Gold Leaf Art -->
+      <!-- Right Column: Circular Visual with Gold Leaf Art & Decorative Rings -->
       <div class="lg:col-span-5 flex items-center justify-center relative">
+        <!-- Decorative Offset Rings -->
+        <div class="absolute w-[340px] h-[340px] sm:w-[380px] sm:h-[380px] md:w-[460px] md:h-[460px] border border-secondary/15 rounded-full scale-102 pointer-events-none -z-10 animate-[spin_60s_linear_infinite]"></div>
+        <div class="absolute w-[360px] h-[360px] sm:w-[400px] sm:h-[400px] md:w-[485px] md:h-[485px] border border-dashed border-primary/10 rounded-full scale-105 pointer-events-none -z-10 animate-[spin_100s_linear_infinite_reverse]"></div>
+        
         <!-- Gold Leaf SVGs behind the circle -->
-        <div class="absolute -top-12 -right-8 w-40 h-40 opacity-40 -z-10 text-secondary pointer-events-none">
+        <div class="absolute -top-12 -right-8 w-40 h-40 opacity-45 -z-10 text-secondary pointer-events-none">
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M10 90 Q 50 50 90 10" stroke-linecap="round"/>
             <path d="M50 50 Q 70 30 80 40 Q 60 60 50 50" fill="currentColor" fill-opacity="0.1"/>
@@ -221,7 +252,7 @@
             <path d="M70 30 Q 85 15 90 25 Q 75 40 70 30" fill="currentColor" fill-opacity="0.1"/>
           </svg>
         </div>
-        <div class="absolute -bottom-8 -left-8 w-40 h-40 opacity-40 -z-10 text-secondary pointer-events-none">
+        <div class="absolute -bottom-8 -left-8 w-40 h-40 opacity-45 -z-10 text-secondary pointer-events-none">
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M90 90 Q 50 50 10 10" stroke-linecap="round"/>
             <path d="M50 50 Q 30 30 20 40 Q 40 60 50 50" fill="currentColor" fill-opacity="0.1"/>
@@ -231,7 +262,7 @@
         </div>
         
         <!-- Large Circular Frame -->
-        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl z-10 transition-transform duration-700 hover:scale-102">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-[10px] border-white shadow-2xl z-10 transition-transform duration-700 hover:scale-102">
           <img class="w-full h-full object-cover" 
                alt="Ancient Wisdom, Modern Radiance" 
                src="./assets/images/treatments_hero.png">
@@ -311,10 +342,67 @@
       <div class="w-24 h-0.5 bg-secondary mx-auto mt-4"></div>
     </div>
     
+    <!-- Search, Filter & Directory Section -->
+    <div class="mb-12 flex flex-col md:flex-row gap-6 items-center justify-between bg-white p-6 rounded-3xl border border-outline-variant/10 shadow-sm">
+      
+      <!-- Filter Buttons (Left/Center) -->
+      <div class="flex flex-wrap gap-2.5 items-center justify-center md:justify-start">
+        <button data-filter="all" class="filter-btn px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-wider bg-primary text-on-primary shadow-md active:scale-95 transition-all duration-300">
+          All
+        </button>
+        <button data-filter="aesthetics" class="filter-btn px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-wider bg-[#fef8f1] hover:bg-secondary/10 text-on-surface border border-secondary/20 hover:border-secondary/50 active:scale-95 transition-all duration-300">
+          Clinical Aesthetics
+        </button>
+        <button data-filter="rejuvenation" class="filter-btn px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-wider bg-[#fef8f1] hover:bg-secondary/10 text-on-surface border border-secondary/20 hover:border-secondary/50 active:scale-95 transition-all duration-300">
+          Rejuvenation & Hair
+        </button>
+        <button data-filter="corrective" class="filter-btn px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-wider bg-[#fef8f1] hover:bg-secondary/10 text-on-surface border border-secondary/20 hover:border-secondary/50 active:scale-95 transition-all duration-300">
+          Corrective Care
+        </button>
+        <button data-filter="glow" class="filter-btn px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-wider bg-[#fef8f1] hover:bg-secondary/10 text-on-surface border border-secondary/20 hover:border-secondary/50 active:scale-95 transition-all duration-300">
+          Brightening & Glow
+        </button>
+      </div>
+
+      <!-- Searchbar and Directory List Icon (Right) -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <!-- Searchbar -->
+        <div class="relative flex-1 md:w-64">
+          <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 text-lg">search</span>
+          <input type="text" id="treatment-search" placeholder="Search treatments..." class="w-full pl-10 pr-4 py-2.5 bg-[#fef8f1] border border-outline-variant/30 rounded-full text-sm placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-inner">
+        </div>
+        
+        <!-- Directory List Icon -->
+        <div class="relative">
+          <button id="directory-toggle" class="bg-[#fef8f1] border border-outline-variant/30 text-on-surface w-10.5 h-10.5 rounded-full flex items-center justify-center hover:bg-secondary/10 active:scale-95 transition-all shadow-sm" aria-label="Toggle Services List">
+            <span class="material-symbols-outlined text-xl">format_list_bulleted</span>
+          </button>
+          <!-- Directory Dropdown List -->
+          <div id="directory-dropdown" class="hidden absolute right-0 mt-2 w-72 max-h-96 overflow-y-auto bg-white border border-outline-variant/20 rounded-2xl shadow-xl z-30 p-4 transition-all duration-300">
+            <h4 class="font-label-md text-xs text-[#795900] tracking-widest uppercase font-semibold mb-3 border-b border-outline-variant/10 pb-2">All Services</h4>
+            <div class="space-y-1" id="directory-items">
+              <a href="#treatment-laser-hair" data-target="treatment-laser-hair" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Laser Hair Reduction</a>
+              <a href="#treatment-hydra-facial" data-target="treatment-hydra-facial" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Hydra Facial</a>
+              <a href="#treatment-carbon-laser" data-target="treatment-carbon-laser" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Carbon Laser Facial</a>
+              <a href="#treatment-anti-aging" data-target="treatment-anti-aging" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Anti-Aging Treatment</a>
+              <a href="#treatment-acne-scar" data-target="treatment-acne-scar" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Acne & Acne Scar Treatment</a>
+              <a href="#treatment-chemical-peel" data-target="treatment-chemical-peel" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Chemical Peel</a>
+              <a href="#treatment-skin-brightening" data-target="treatment-skin-brightening" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Skin Brightening</a>
+              <a href="#treatment-pigmentation" data-target="treatment-pigmentation" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Pigmentation Treatment</a>
+              <a href="#treatment-skin-rejuvenation" data-target="treatment-skin-rejuvenation" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Skin Rejuvenation</a>
+              <a href="#treatment-open-pores" data-target="treatment-open-pores" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Open Pore Reduction</a>
+              <a href="#treatment-prp-therapy" data-target="treatment-prp-therapy" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">PRP Therapy</a>
+              <a href="#treatment-bridal-glow" data-target="treatment-bridal-glow" class="directory-item block text-xs text-on-surface hover:text-primary hover:bg-secondary/10 px-2.5 py-2 rounded-lg transition-colors font-medium">Bridal Glow Program</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!-- 12 Cards Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-gutter">
       <!-- Card 1: Laser Hair Reduction -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-laser-hair" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/laser_hair.png" 
@@ -344,7 +432,7 @@
       </div>
 
       <!-- Card 2: Hydra Facial -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-hydra-facial" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/hydra_facial.png" 
@@ -374,7 +462,7 @@
       </div>
 
       <!-- Card 3: Carbon Laser Facial -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-carbon-laser" data-category="aesthetics" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/carbon_laser.png" 
@@ -408,7 +496,7 @@
       </div>
 
       <!-- Card 4: Anti-Aging Treatment -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-anti-aging" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/anti_aging.png" 
@@ -438,7 +526,7 @@
       </div>
 
       <!-- Card 5: Acne & Acne Scar Treatment -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-acne-scar" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/acne_scar.png" 
@@ -468,7 +556,7 @@
       </div>
 
       <!-- Card 6: Chemical Peel -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-chemical-peel" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/chemical_peel.png" 
@@ -498,7 +586,7 @@
       </div>
 
       <!-- Card 7: Skin Brightening -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-skin-brightening" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/skin_brightening.png" 
@@ -528,7 +616,7 @@
       </div>
 
       <!-- Card 8: Pigmentation Treatment -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-pigmentation" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/pigmentation.png" 
@@ -560,7 +648,7 @@
       </div>
 
       <!-- Card 9: Skin Rejuvenation -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-skin-rejuvenation" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/skin_rejuvenation.png" 
@@ -590,7 +678,7 @@
       </div>
 
       <!-- Card 10: Open Pore Reduction -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-open-pores" data-category="corrective" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/open_pores.png" 
@@ -620,7 +708,7 @@
       </div>
 
       <!-- Card 11: PRP Therapy -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-prp-therapy" data-category="rejuvenation" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/prp_therapy.png" 
@@ -650,7 +738,7 @@
       </div>
 
       <!-- Card 12: Bridal Glow Program -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
+      <div id="treatment-bridal-glow" data-category="glow" class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/10 flex flex-col group h-full">
         <div class="relative overflow-hidden aspect-[4/3] w-full bg-[#fcf9f5]">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                src="./assets/images/bridal_glow.png" 
@@ -850,47 +938,77 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-section-padding border-t border-secondary/20">
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="col-span-1 md:col-span-1">
-<a class="flex items-center mb-4" href="./index.html">
-  <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-10 w-auto object-contain brightness-0 invert">
-</a>
-<p class="font-body-md text-on-primary/80 leading-relaxed">
-                    Pioneering the synthesis of aesthetic medicine and traditional wellness. Your journey to radiant skin begins here.
-                </p>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Navigation</h4>
-<ul class="space-y-4">
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./index.html">Home</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./about.html">About Us</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Treatments</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./gallery.html">Gallery</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./contact.html">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Popular Treatments</h4>
-<ul class="space-y-4">
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">HydraFacial Elite</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Panchakarma Detox</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Laser Skin Resurfacing</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-primary/80 hover:text-secondary-fixed transition-all hover:translate-x-1 inline-block" href="./treatments.html">Ayurvedic Rejuvenation</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-secondary-fixed mb-6 tracking-widest uppercase">Newsletter</h4>
-<p class="font-label-sm text-label-sm text-on-primary/60 mb-4 italic">Receive beauty insights &amp; clinical updates.</p>
-<form class="flex gap-2">
-<input class="bg-primary-container/30 border border-on-primary/20 rounded-lg px-4 py-2 text-on-primary placeholder:text-on-primary/40 focus:outline-none focus:border-secondary-fixed w-full" placeholder="Email Address" type="email">
-<button class="bg-secondary-fixed text-primary px-4 py-2 rounded-lg font-label-md">JOIN</button>
-</form>
-</div>
-</div>
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-16 pt-8 border-t border-on-primary/10 text-center">
-<p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Tridha Roopveda. Advanced Dermatology &amp; Aesthetics. All Rights Reserved.</p>
-</div>
+<footer class="bg-[#f4efe8] text-on-surface w-full py-10 border-t border-secondary/15">
+  <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+    <!-- Col 1 -->
+    <div class="col-span-1 space-y-3">
+      <a class="flex items-center" href="./index.html">
+        <img src="./assets/images/roopvedaLogo.png" alt="Roopveda Logo" class="h-9 w-auto object-contain">
+      </a>
+      <p class="font-body-md text-xs text-[#595754] leading-relaxed">
+        Rooted in Ayurveda.<br>Radiant in You.
+      </p>
+      <!-- Social Icons -->
+      <div class="flex gap-3 pt-1">
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors">
+          <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- Col 2 -->
+    <div>
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./index.html">Home</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./about.html">About Us</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html">Treatments</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./gallery.html">Gallery</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Col 3 -->
+    <div>
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Popular Services</h4>
+      <ul class="space-y-2">
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-laser-hair">Laser Hair Reduction</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-hydra-facial">Hydra Facial</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-anti-aging">Anti-Aging Treatment</a></li>
+        <li><a class="font-label-sm text-xs text-[#595754] hover:text-primary transition-all hover:translate-x-0.5 inline-block" href="./treatments.html#treatment-bridal-glow">Bridal Glow Program</a></li>
+      </ul>
+    </div>
+    <!-- Col 4 -->
+    <div class="space-y-3">
+      <h4 class="font-label-md text-xs text-[#795900] mb-4 tracking-widest uppercase font-semibold">Newsletter</h4>
+      <p class="font-label-sm text-xs text-[#595754] italic leading-relaxed">Subscribe to receive skincare tips and clinical updates.</p>
+      <form class="flex gap-2">
+        <input class="bg-white border border-[#d4a32d]/30 rounded-lg px-3 py-1.5 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-[#73001a] w-full shadow-sm text-xs" placeholder="Your email" type="email">
+        <button class="bg-[#73001a] hover:bg-primary-container text-white px-3 py-1.5 rounded-lg flex items-center justify-center transition-all duration-300">
+          <span class="material-symbols-outlined text-xs">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-8 pt-6 border-t border-secondary/10 text-center flex flex-col items-center gap-2">
+    <p class="font-label-sm text-xs text-[#595754]">&copy; 2024 Tridha Roopveda. All Rights Reserved.</p>
+  </div>
 </footer>
 <script>
         // Mobile menu toggle logic
@@ -959,8 +1077,6 @@
             if (window.scrollY > 20) {
                 nav.classList.add(
                     'top-4', 
-                    'left-1/2', 
-                    '-translate-x-1/2', 
                     'w-[92%]', 
                     'max-w-container-max', 
                     'bg-surface/85', 
@@ -973,27 +1089,19 @@
                 );
                 nav.classList.remove(
                     'top-0', 
-                    'left-0', 
                     'w-full', 
                     'bg-transparent', 
-                    'border-b', 
-                    'border-transparent', 
                     'py-4'
                 );
             } else {
                 nav.classList.add(
                     'top-0', 
-                    'left-0', 
                     'w-full', 
                     'bg-transparent', 
-                    'border-b', 
-                    'border-transparent', 
                     'py-4'
                 );
                 nav.classList.remove(
                     'top-4', 
-                    'left-1/2', 
-                    '-translate-x-1/2', 
                     'w-[92%]', 
                     'max-w-container-max', 
                     'bg-surface/85', 
@@ -1005,6 +1113,112 @@
                     'rounded-full'
                 );
             }
+        });
+
+        // Treatment Search & Filter & Directory Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('treatment-search');
+        const directoryToggle = document.getElementById('directory-toggle');
+        const directoryDropdown = document.getElementById('directory-dropdown');
+        const cards = document.querySelectorAll('[data-category]');
+
+        // Filter and Search logic combined
+        const filterTreatments = () => {
+            const query = searchInput.value.toLowerCase().trim();
+            const activeFilter = document.querySelector('.filter-btn.bg-primary').getAttribute('data-filter');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                
+                const matchesFilter = (activeFilter === 'all' || category === activeFilter);
+                const matchesQuery = (title.includes(query) || desc.includes(query));
+
+                if (matchesFilter && matchesQuery) {
+                    card.style.display = 'flex'; // grid items
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        // Filter Buttons click handler
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+                    b.classList.add('bg-[#fef8f1]', 'text-on-surface', 'border', 'border-secondary/20');
+                });
+                // Add active styling to clicked
+                btn.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+                btn.classList.remove('bg-[#fef8f1]', 'text-on-surface', 'border', 'border-secondary/20');
+                
+                filterTreatments();
+            });
+        });
+
+        // Search Input handler
+        if (searchInput) {
+            searchInput.addEventListener('input', filterTreatments);
+        }
+
+        // Directory Dropdown Toggle
+        if (directoryToggle && directoryDropdown) {
+            directoryToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                directoryDropdown.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!directoryToggle.contains(e.target) && !directoryDropdown.contains(e.target)) {
+                    directoryDropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        // Directory Item Click smooth scroll & highlight
+        const directoryItems = document.querySelectorAll('.directory-item');
+        directoryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = item.getAttribute('data-target');
+                const targetCard = document.getElementById(targetId);
+                
+                if (targetCard) {
+                    // Close dropdown
+                    if (directoryDropdown) directoryDropdown.classList.add('hidden');
+                    
+                    // Reset filter and search so that card is visible!
+                    searchInput.value = '';
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+                        b.classList.add('bg-[#fef8f1]', 'text-on-surface', 'border', 'border-secondary/20');
+                        if (b.getAttribute('data-filter') === 'all') {
+                            b.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+                            b.classList.remove('bg-[#fef8f1]', 'text-on-surface', 'border', 'border-secondary/20');
+                        }
+                    });
+                    filterTreatments(); // Show all cards
+                    
+                    // Scroll to card smoothly with offset for fixed nav
+                    const navOffset = 90;
+                    const elementPosition = targetCard.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - navOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Add highlight animation ring
+                    targetCard.classList.add('ring-4', 'ring-[#795900]', 'ring-offset-4', 'scale-102', 'z-10');
+                    setTimeout(() => {
+                        targetCard.classList.remove('ring-4', 'ring-[#795900]', 'ring-offset-4', 'scale-102', 'z-10');
+                    }, 2500);
+                }
+            });
         });
     </script>
 </body></html>
